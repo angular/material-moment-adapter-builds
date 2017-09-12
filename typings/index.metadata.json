@@ -1,1 +1,1 @@
-{"__symbolic":"module","version":3,"metadata":{},"origins":{"_momentAdapter":"./public_api"},"importAs":"@angular/material-moment-adapter"}
+{"__symbolic":"module","version":3,"exports":[{"from":"./adapter"}],"metadata":{},"origins":{},"importAs":"@angular/material-moment-adapter"}
