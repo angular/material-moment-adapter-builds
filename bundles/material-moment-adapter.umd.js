@@ -251,8 +251,16 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getISODateString = function (date) {
+    MomentDateAdapter.prototype.toIso8601 = function (date) {
         return this.clone(date).format();
+    };
+    /**
+     * @param {?} iso8601String
+     * @return {?}
+     */
+    MomentDateAdapter.prototype.fromIso8601 = function (iso8601String) {
+        var /** @type {?} */ d = moment(iso8601String, moment.ISO_8601).locale(this.locale);
+        return this.isValid(d) ? d : null;
     };
     /**
      * @param {?} obj

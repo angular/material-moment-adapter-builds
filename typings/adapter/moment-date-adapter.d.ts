@@ -23,7 +23,8 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     addCalendarYears(date: Moment, years: number): Moment;
     addCalendarMonths(date: Moment, months: number): Moment;
     addCalendarDays(date: Moment, days: number): Moment;
-    getISODateString(date: Moment): string;
+    toIso8601(date: Moment): string;
+    fromIso8601(iso8601String: string): Moment | null;
     isDateInstance(obj: any): boolean;
     isValid(date: Moment): boolean;
 }

@@ -219,8 +219,16 @@ class MomentDateAdapter extends DateAdapter {
      * @param {?} date
      * @return {?}
      */
-    getISODateString(date) {
+    toIso8601(date) {
         return this.clone(date).format();
+    }
+    /**
+     * @param {?} iso8601String
+     * @return {?}
+     */
+    fromIso8601(iso8601String) {
+        let /** @type {?} */ d = moment(iso8601String, moment.ISO_8601).locale(this.locale);
+        return this.isValid(d) ? d : null;
     }
     /**
      * @param {?} obj
