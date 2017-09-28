@@ -7,7 +7,7 @@ import * as tslib_1 from "tslib";
  * found in the LICENSE file at https://angular.io/license
  */
 import { Inject, Injectable, NgModule, Optional } from '@angular/core';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER, MD_DATE_FORMATS } from '@angular/material';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
 // Depending on whether rollup is used, moment needs to be imported differently.
@@ -258,7 +258,7 @@ MomentDateAdapter.decorators = [
 MomentDateAdapter.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
 ]; };
-var MD_MOMENT_DATE_FORMATS = {
+var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -286,23 +286,23 @@ MomentDateModule.decorators = [
  * @nocollapse
  */
 MomentDateModule.ctorParameters = function () { return []; };
-var MdMomentDateModule = (function () {
-    function MdMomentDateModule() {
+var MatMomentDateModule = (function () {
+    function MatMomentDateModule() {
     }
-    return MdMomentDateModule;
+    return MatMomentDateModule;
 }());
-MdMomentDateModule.decorators = [
+MatMomentDateModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MomentDateModule],
-                providers: [{ provide: MD_DATE_FORMATS, useValue: MD_MOMENT_DATE_FORMATS }],
+                providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
             },] },
 ];
 /**
  * @nocollapse
  */
-MdMomentDateModule.ctorParameters = function () { return []; };
+MatMomentDateModule.ctorParameters = function () { return []; };
 /**
  * Generated bundle index. Do not edit.
  */
-export { MomentDateModule, MdMomentDateModule, MomentDateAdapter, MD_MOMENT_DATE_FORMATS };
+export { MomentDateModule, MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.es5.js.map

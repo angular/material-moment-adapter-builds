@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Inject, Injectable, NgModule, Optional } from '@angular/core';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER, MD_DATE_FORMATS } from '@angular/material';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
 
@@ -255,7 +255,7 @@ MomentDateAdapter.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
 ];
 
-const MD_MOMENT_DATE_FORMATS = {
+const MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -281,22 +281,22 @@ MomentDateModule.decorators = [
  * @nocollapse
  */
 MomentDateModule.ctorParameters = () => [];
-class MdMomentDateModule {
+class MatMomentDateModule {
 }
-MdMomentDateModule.decorators = [
+MatMomentDateModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MomentDateModule],
-                providers: [{ provide: MD_DATE_FORMATS, useValue: MD_MOMENT_DATE_FORMATS }],
+                providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
             },] },
 ];
 /**
  * @nocollapse
  */
-MdMomentDateModule.ctorParameters = () => [];
+MatMomentDateModule.ctorParameters = () => [];
 
 /**
  * Generated bundle index. Do not edit.
  */
 
-export { MomentDateModule, MdMomentDateModule, MomentDateAdapter, MD_MOMENT_DATE_FORMATS };
+export { MomentDateModule, MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.js.map

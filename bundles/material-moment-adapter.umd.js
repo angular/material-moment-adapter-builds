@@ -287,7 +287,7 @@ MomentDateAdapter.decorators = [
 MomentDateAdapter.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_material.MAT_DATE_LOCALE,] },] },
 ]; };
-var MD_MOMENT_DATE_FORMATS = {
+var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -315,26 +315,26 @@ MomentDateModule.decorators = [
  * @nocollapse
  */
 MomentDateModule.ctorParameters = function () { return []; };
-var MdMomentDateModule = (function () {
-    function MdMomentDateModule() {
+var MatMomentDateModule = (function () {
+    function MatMomentDateModule() {
     }
-    return MdMomentDateModule;
+    return MatMomentDateModule;
 }());
-MdMomentDateModule.decorators = [
+MatMomentDateModule.decorators = [
     { type: _angular_core.NgModule, args: [{
                 imports: [MomentDateModule],
-                providers: [{ provide: _angular_material.MD_DATE_FORMATS, useValue: MD_MOMENT_DATE_FORMATS }],
+                providers: [{ provide: _angular_material.MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
             },] },
 ];
 /**
  * @nocollapse
  */
-MdMomentDateModule.ctorParameters = function () { return []; };
+MatMomentDateModule.ctorParameters = function () { return []; };
 
 exports.MomentDateModule = MomentDateModule;
-exports.MdMomentDateModule = MdMomentDateModule;
+exports.MatMomentDateModule = MatMomentDateModule;
 exports.MomentDateAdapter = MomentDateAdapter;
-exports.MD_MOMENT_DATE_FORMATS = MD_MOMENT_DATE_FORMATS;
+exports.MAT_MOMENT_DATE_FORMATS = MAT_MOMENT_DATE_FORMATS;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
