@@ -1,4 +1,3 @@
-import * as tslib_1 from "tslib";
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -8,8 +7,11 @@ import * as tslib_1 from "tslib";
  */
 import { Inject, Injectable, NgModule, Optional } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
+import { __extends } from 'tslib';
+import * as tslib_1 from 'tslib';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
+
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
@@ -34,7 +36,7 @@ function range(length, valueFunction) {
  * Adapts Moment.js Dates for use with Angular Material.
  */
 var MomentDateAdapter = (function (_super) {
-    tslib_1.__extends(MomentDateAdapter, _super);
+    __extends(MomentDateAdapter, _super);
     /**
      * @param {?} dateLocale
      */
@@ -247,17 +249,18 @@ var MomentDateAdapter = (function (_super) {
     MomentDateAdapter.prototype.isValid = function (date) {
         return this.clone(date).isValid();
     };
+    MomentDateAdapter.decorators = [
+        { type: Injectable },
+    ];
+    /**
+     * @nocollapse
+     */
+    MomentDateAdapter.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
+    ]; };
     return MomentDateAdapter;
 }(DateAdapter));
-MomentDateAdapter.decorators = [
-    { type: Injectable },
-];
-/**
- * @nocollapse
- */
-MomentDateAdapter.ctorParameters = function () { return [
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
-]; };
+
 var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
@@ -269,40 +272,43 @@ var MAT_MOMENT_DATE_FORMATS = {
         monthYearA11yLabel: 'MMMM YYYY',
     },
 };
+
 var MomentDateModule = (function () {
     function MomentDateModule() {
     }
+    MomentDateModule.decorators = [
+        { type: NgModule, args: [{
+                    providers: [
+                        MAT_DATE_LOCALE_PROVIDER,
+                        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
+                    ],
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
-MomentDateModule.decorators = [
-    { type: NgModule, args: [{
-                providers: [
-                    MAT_DATE_LOCALE_PROVIDER,
-                    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
-                ],
-            },] },
-];
-/**
- * @nocollapse
- */
-MomentDateModule.ctorParameters = function () { return []; };
 var MatMomentDateModule = (function () {
     function MatMomentDateModule() {
     }
+    MatMomentDateModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MomentDateModule],
+                    providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
-MatMomentDateModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [MomentDateModule],
-                providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
-            },] },
-];
-/**
- * @nocollapse
- */
-MatMomentDateModule.ctorParameters = function () { return []; };
+
 /**
  * Generated bundle index. Do not edit.
  */
+
 export { MomentDateModule, MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.es5.js.map

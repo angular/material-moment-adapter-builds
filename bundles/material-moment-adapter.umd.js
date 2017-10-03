@@ -276,17 +276,18 @@ var MomentDateAdapter = (function (_super) {
     MomentDateAdapter.prototype.isValid = function (date) {
         return this.clone(date).isValid();
     };
+    MomentDateAdapter.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /**
+     * @nocollapse
+     */
+    MomentDateAdapter.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_material.MAT_DATE_LOCALE,] },] },
+    ]; };
     return MomentDateAdapter;
 }(_angular_material.DateAdapter));
-MomentDateAdapter.decorators = [
-    { type: _angular_core.Injectable },
-];
-/**
- * @nocollapse
- */
-MomentDateAdapter.ctorParameters = function () { return [
-    { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_material.MAT_DATE_LOCALE,] },] },
-]; };
+
 var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
@@ -298,38 +299,39 @@ var MAT_MOMENT_DATE_FORMATS = {
         monthYearA11yLabel: 'MMMM YYYY',
     },
 };
+
 var MomentDateModule = (function () {
     function MomentDateModule() {
     }
+    MomentDateModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    providers: [
+                        _angular_material.MAT_DATE_LOCALE_PROVIDER,
+                        { provide: _angular_material.DateAdapter, useClass: MomentDateAdapter, deps: [_angular_material.MAT_DATE_LOCALE] }
+                    ],
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
-MomentDateModule.decorators = [
-    { type: _angular_core.NgModule, args: [{
-                providers: [
-                    _angular_material.MAT_DATE_LOCALE_PROVIDER,
-                    { provide: _angular_material.DateAdapter, useClass: MomentDateAdapter, deps: [_angular_material.MAT_DATE_LOCALE] }
-                ],
-            },] },
-];
-/**
- * @nocollapse
- */
-MomentDateModule.ctorParameters = function () { return []; };
 var MatMomentDateModule = (function () {
     function MatMomentDateModule() {
     }
+    MatMomentDateModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    imports: [MomentDateModule],
+                    providers: [{ provide: _angular_material.MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
-MatMomentDateModule.decorators = [
-    { type: _angular_core.NgModule, args: [{
-                imports: [MomentDateModule],
-                providers: [{ provide: _angular_material.MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
-            },] },
-];
-/**
- * @nocollapse
- */
-MatMomentDateModule.ctorParameters = function () { return []; };
 
 exports.MomentDateModule = MomentDateModule;
 exports.MatMomentDateModule = MatMomentDateModule;
