@@ -223,12 +223,27 @@ class MomentDateAdapter extends DateAdapter {
         return this.clone(date).format();
     }
     /**
-     * @param {?} iso8601String
+     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
+     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
+     * string into null. Returns an invalid date for all other values.
+     * @param {?} value
      * @return {?}
      */
-    fromIso8601(iso8601String) {
-        let /** @type {?} */ d = moment(iso8601String, moment.ISO_8601).locale(this.locale);
-        return this.isValid(d) ? d : null;
+    deserialize(value) {
+        let /** @type {?} */ date;
+        if (value instanceof Date) {
+            date = moment(value);
+        }
+        if (typeof value === 'string') {
+            if (!value) {
+                return null;
+            }
+            date = moment(value, moment.ISO_8601).locale(this.locale);
+        }
+        if (date && this.isValid(date)) {
+            return date;
+        }
+        return super.deserialize(value);
     }
     /**
      * @param {?} obj
@@ -243,6 +258,12 @@ class MomentDateAdapter extends DateAdapter {
      */
     isValid(date) {
         return this.clone(date).isValid();
+    }
+    /**
+     * @return {?}
+     */
+    invalid() {
+        return moment.invalid();
     }
 }
 MomentDateAdapter.decorators = [

@@ -255,12 +255,27 @@ var MomentDateAdapter = (function (_super) {
         return this.clone(date).format();
     };
     /**
-     * @param {?} iso8601String
+     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
+     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
+     * string into null. Returns an invalid date for all other values.
+     * @param {?} value
      * @return {?}
      */
-    MomentDateAdapter.prototype.fromIso8601 = function (iso8601String) {
-        var /** @type {?} */ d = moment(iso8601String, moment.ISO_8601).locale(this.locale);
-        return this.isValid(d) ? d : null;
+    MomentDateAdapter.prototype.deserialize = function (value) {
+        var /** @type {?} */ date;
+        if (value instanceof Date) {
+            date = moment(value);
+        }
+        if (typeof value === 'string') {
+            if (!value) {
+                return null;
+            }
+            date = moment(value, moment.ISO_8601).locale(this.locale);
+        }
+        if (date && this.isValid(date)) {
+            return date;
+        }
+        return _super.prototype.deserialize.call(this, value);
     };
     /**
      * @param {?} obj
@@ -275,6 +290,12 @@ var MomentDateAdapter = (function (_super) {
      */
     MomentDateAdapter.prototype.isValid = function (date) {
         return this.clone(date).isValid();
+    };
+    /**
+     * @return {?}
+     */
+    MomentDateAdapter.prototype.invalid = function () {
+        return moment.invalid();
     };
     MomentDateAdapter.decorators = [
         { type: _angular_core.Injectable },
