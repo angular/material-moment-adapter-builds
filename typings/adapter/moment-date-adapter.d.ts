@@ -24,6 +24,7 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     addCalendarMonths(date: Moment, months: number): Moment;
     addCalendarDays(date: Moment, days: number): Moment;
     toIso8601(date: Moment): string;
+    fromIso8601(iso8601String: string): Moment | null;
     /**
      * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
      * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
