@@ -10,6 +10,11 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDE
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
@@ -269,13 +274,15 @@ class MomentDateAdapter extends DateAdapter {
 MomentDateAdapter.decorators = [
     { type: Injectable },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 MomentDateAdapter.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
 ];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 const MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
@@ -288,6 +295,11 @@ const MAT_MOMENT_DATE_FORMATS = {
     },
 };
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
 class MomentDateModule {
 }
 MomentDateModule.decorators = [
@@ -298,23 +310,29 @@ MomentDateModule.decorators = [
                 ],
             },] },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 MomentDateModule.ctorParameters = () => [];
+const ɵ0 = MAT_MOMENT_DATE_FORMATS;
 class MatMomentDateModule {
 }
 MatMomentDateModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MomentDateModule],
-                providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
+                providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
             },] },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 MatMomentDateModule.ctorParameters = () => [];
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * Generated bundle index. Do not edit.
  */

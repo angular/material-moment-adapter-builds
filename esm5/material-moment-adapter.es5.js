@@ -12,6 +12,10 @@ import * as tslib_1 from 'tslib';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
@@ -37,9 +41,6 @@ function range(length, valueFunction) {
  */
 var MomentDateAdapter = (function (_super) {
     __extends(MomentDateAdapter, _super);
-    /**
-     * @param {?} dateLocale
-     */
     function MomentDateAdapter(dateLocale) {
         var _this = _super.call(this) || this;
         _this.setLocale(dateLocale || moment.locale());
@@ -49,7 +50,11 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} locale
      * @return {?}
      */
-    MomentDateAdapter.prototype.setLocale = function (locale) {
+    MomentDateAdapter.prototype.setLocale = /**
+     * @param {?} locale
+     * @return {?}
+     */
+    function (locale) {
         var _this = this;
         _super.prototype.setLocale.call(this, locale);
         var /** @type {?} */ momentLocaleData = moment.localeData(locale);
@@ -67,49 +72,76 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getYear = function (date) {
+    MomentDateAdapter.prototype.getYear = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).year();
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getMonth = function (date) {
+    MomentDateAdapter.prototype.getMonth = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).month();
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getDate = function (date) {
+    MomentDateAdapter.prototype.getDate = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).date();
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getDayOfWeek = function (date) {
+    MomentDateAdapter.prototype.getDayOfWeek = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).day();
     };
     /**
      * @param {?} style
      * @return {?}
      */
-    MomentDateAdapter.prototype.getMonthNames = function (style) {
+    MomentDateAdapter.prototype.getMonthNames = /**
+     * @param {?} style
+     * @return {?}
+     */
+    function (style) {
         // Moment.js doesn't support narrow month names, so we just use short if narrow is requested.
         return style == 'long' ? this._localeData.longMonths : this._localeData.shortMonths;
     };
     /**
      * @return {?}
      */
-    MomentDateAdapter.prototype.getDateNames = function () {
+    MomentDateAdapter.prototype.getDateNames = /**
+     * @return {?}
+     */
+    function () {
         return this._localeData.dates;
     };
     /**
      * @param {?} style
      * @return {?}
      */
-    MomentDateAdapter.prototype.getDayOfWeekNames = function (style) {
+    MomentDateAdapter.prototype.getDayOfWeekNames = /**
+     * @param {?} style
+     * @return {?}
+     */
+    function (style) {
         if (style == 'long') {
             return this._localeData.longDaysOfWeek;
         }
@@ -122,27 +154,42 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getYearName = function (date) {
+    MomentDateAdapter.prototype.getYearName = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).format('YYYY');
     };
     /**
      * @return {?}
      */
-    MomentDateAdapter.prototype.getFirstDayOfWeek = function () {
+    MomentDateAdapter.prototype.getFirstDayOfWeek = /**
+     * @return {?}
+     */
+    function () {
         return this._localeData.firstDayOfWeek;
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.getNumDaysInMonth = function (date) {
+    MomentDateAdapter.prototype.getNumDaysInMonth = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).daysInMonth();
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.clone = function (date) {
+    MomentDateAdapter.prototype.clone = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return date.clone().locale(this.locale);
     };
     /**
@@ -151,7 +198,13 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.createDate = function (year, month, date) {
+    MomentDateAdapter.prototype.createDate = /**
+     * @param {?} year
+     * @param {?} month
+     * @param {?} date
+     * @return {?}
+     */
+    function (year, month, date) {
         // Moment.js will create an invalid date if any of the components are out of bounds, but we
         // explicitly check each case so we can throw more descriptive errors.
         if (month < 0 || month > 11) {
@@ -170,7 +223,10 @@ var MomentDateAdapter = (function (_super) {
     /**
      * @return {?}
      */
-    MomentDateAdapter.prototype.today = function () {
+    MomentDateAdapter.prototype.today = /**
+     * @return {?}
+     */
+    function () {
         return moment().locale(this.locale);
     };
     /**
@@ -178,7 +234,12 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} parseFormat
      * @return {?}
      */
-    MomentDateAdapter.prototype.parse = function (value, parseFormat) {
+    MomentDateAdapter.prototype.parse = /**
+     * @param {?} value
+     * @param {?} parseFormat
+     * @return {?}
+     */
+    function (value, parseFormat) {
         if (value && typeof value == 'string') {
             return moment(value, parseFormat, this.locale);
         }
@@ -189,7 +250,12 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} displayFormat
      * @return {?}
      */
-    MomentDateAdapter.prototype.format = function (date, displayFormat) {
+    MomentDateAdapter.prototype.format = /**
+     * @param {?} date
+     * @param {?} displayFormat
+     * @return {?}
+     */
+    function (date, displayFormat) {
         date = this.clone(date);
         if (!this.isValid(date)) {
             throw Error('MomentDateAdapter: Cannot format invalid date.');
@@ -201,7 +267,12 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} years
      * @return {?}
      */
-    MomentDateAdapter.prototype.addCalendarYears = function (date, years) {
+    MomentDateAdapter.prototype.addCalendarYears = /**
+     * @param {?} date
+     * @param {?} years
+     * @return {?}
+     */
+    function (date, years) {
         return this.clone(date).add({ years: years });
     };
     /**
@@ -209,7 +280,12 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} months
      * @return {?}
      */
-    MomentDateAdapter.prototype.addCalendarMonths = function (date, months) {
+    MomentDateAdapter.prototype.addCalendarMonths = /**
+     * @param {?} date
+     * @param {?} months
+     * @return {?}
+     */
+    function (date, months) {
         return this.clone(date).add({ months: months });
     };
     /**
@@ -217,16 +293,30 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} days
      * @return {?}
      */
-    MomentDateAdapter.prototype.addCalendarDays = function (date, days) {
+    MomentDateAdapter.prototype.addCalendarDays = /**
+     * @param {?} date
+     * @param {?} days
+     * @return {?}
+     */
+    function (date, days) {
         return this.clone(date).add({ days: days });
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.toIso8601 = function (date) {
+    MomentDateAdapter.prototype.toIso8601 = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).format();
     };
+    /**
+     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
+     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
+     * string into null. Returns an invalid date for all other values.
+     */
     /**
      * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
      * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
@@ -234,7 +324,14 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} value
      * @return {?}
      */
-    MomentDateAdapter.prototype.deserialize = function (value) {
+    MomentDateAdapter.prototype.deserialize = /**
+     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
+     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
+     * string into null. Returns an invalid date for all other values.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
         var /** @type {?} */ date;
         if (value instanceof Date) {
             date = moment(value);
@@ -254,34 +351,47 @@ var MomentDateAdapter = (function (_super) {
      * @param {?} obj
      * @return {?}
      */
-    MomentDateAdapter.prototype.isDateInstance = function (obj) {
+    MomentDateAdapter.prototype.isDateInstance = /**
+     * @param {?} obj
+     * @return {?}
+     */
+    function (obj) {
         return moment.isMoment(obj);
     };
     /**
      * @param {?} date
      * @return {?}
      */
-    MomentDateAdapter.prototype.isValid = function (date) {
+    MomentDateAdapter.prototype.isValid = /**
+     * @param {?} date
+     * @return {?}
+     */
+    function (date) {
         return this.clone(date).isValid();
     };
     /**
      * @return {?}
      */
-    MomentDateAdapter.prototype.invalid = function () {
+    MomentDateAdapter.prototype.invalid = /**
+     * @return {?}
+     */
+    function () {
         return moment.invalid();
     };
     MomentDateAdapter.decorators = [
         { type: Injectable },
     ];
-    /**
-     * @nocollapse
-     */
+    /** @nocollapse */
     MomentDateAdapter.ctorParameters = function () { return [
         { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
     ]; };
     return MomentDateAdapter;
 }(DateAdapter));
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
@@ -294,6 +404,11 @@ var MAT_MOMENT_DATE_FORMATS = {
     },
 };
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
 var MomentDateModule = (function () {
     function MomentDateModule() {
     }
@@ -305,28 +420,34 @@ var MomentDateModule = (function () {
                     ],
                 },] },
     ];
-    /**
-     * @nocollapse
-     */
+    /** @nocollapse */
     MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
+var ɵ0 = MAT_MOMENT_DATE_FORMATS;
 var MatMomentDateModule = (function () {
     function MatMomentDateModule() {
     }
     MatMomentDateModule.decorators = [
         { type: NgModule, args: [{
                     imports: [MomentDateModule],
-                    providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
+                    providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
                 },] },
     ];
-    /**
-     * @nocollapse
-     */
+    /** @nocollapse */
     MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * Generated bundle index. Do not edit.
  */
