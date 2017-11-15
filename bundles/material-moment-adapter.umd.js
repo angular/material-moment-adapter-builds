@@ -66,7 +66,7 @@ function range(length, valueFunction) {
 /**
  * Adapts Moment.js Dates for use with Angular Material.
  */
-var MomentDateAdapter = /** @class */ (function (_super) {
+var MomentDateAdapter = (function (_super) {
     __extends(MomentDateAdapter, _super);
     function MomentDateAdapter(dateLocale) {
         var _this = _super.call(this) || this;
@@ -405,6 +405,13 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     function () {
         return moment.invalid();
     };
+    MomentDateAdapter.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    MomentDateAdapter.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_material.MAT_DATE_LOCALE,] },] },
+    ]; };
     return MomentDateAdapter;
 }(_angular_material.DateAdapter));
 
@@ -429,14 +436,33 @@ var MAT_MOMENT_DATE_FORMATS = {
  * @suppress {checkTypes} checked by tsc
  */
 
-var MomentDateModule = /** @class */ (function () {
+var MomentDateModule = (function () {
     function MomentDateModule() {
     }
+    MomentDateModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    providers: [
+                        _angular_material.MAT_DATE_LOCALE_PROVIDER,
+                        { provide: _angular_material.DateAdapter, useClass: MomentDateAdapter, deps: [_angular_material.MAT_DATE_LOCALE] }
+                    ],
+                },] },
+    ];
+    /** @nocollapse */
+    MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
-var MatMomentDateModule = /** @class */ (function () {
+var ɵ0 = MAT_MOMENT_DATE_FORMATS;
+var MatMomentDateModule = (function () {
     function MatMomentDateModule() {
     }
+    MatMomentDateModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    imports: [MomentDateModule],
+                    providers: [{ provide: _angular_material.MAT_DATE_FORMATS, useValue: ɵ0 }],
+                },] },
+    ];
+    /** @nocollapse */
+    MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
 
