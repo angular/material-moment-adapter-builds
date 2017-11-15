@@ -5,8 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Inject, Injectable, NgModule, Optional } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
+import '@angular/core';
+import { DateAdapter } from '@angular/material';
 import { __extends } from 'tslib';
 import * as tslib_1 from 'tslib';
 import * as _rollupMoment from 'moment';
@@ -39,7 +39,7 @@ function range(length, valueFunction) {
 /**
  * Adapts Moment.js Dates for use with Angular Material.
  */
-var MomentDateAdapter = (function (_super) {
+var MomentDateAdapter = /** @class */ (function (_super) {
     __extends(MomentDateAdapter, _super);
     function MomentDateAdapter(dateLocale) {
         var _this = _super.call(this) || this;
@@ -378,13 +378,6 @@ var MomentDateAdapter = (function (_super) {
     function () {
         return moment.invalid();
     };
-    MomentDateAdapter.decorators = [
-        { type: Injectable },
-    ];
-    /** @nocollapse */
-    MomentDateAdapter.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
-    ]; };
     return MomentDateAdapter;
 }(DateAdapter));
 
@@ -409,33 +402,14 @@ var MAT_MOMENT_DATE_FORMATS = {
  * @suppress {checkTypes} checked by tsc
  */
 
-var MomentDateModule = (function () {
+var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
     }
-    MomentDateModule.decorators = [
-        { type: NgModule, args: [{
-                    providers: [
-                        MAT_DATE_LOCALE_PROVIDER,
-                        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
-                    ],
-                },] },
-    ];
-    /** @nocollapse */
-    MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
-var ɵ0 = MAT_MOMENT_DATE_FORMATS;
-var MatMomentDateModule = (function () {
+var MatMomentDateModule = /** @class */ (function () {
     function MatMomentDateModule() {
     }
-    MatMomentDateModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [MomentDateModule],
-                    providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
-                },] },
-    ];
-    /** @nocollapse */
-    MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
 

@@ -5,8 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Inject, Injectable, NgModule, Optional } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
+import '@angular/core';
+import { DateAdapter } from '@angular/material';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
 
@@ -271,13 +271,6 @@ class MomentDateAdapter extends DateAdapter {
         return moment.invalid();
     }
 }
-MomentDateAdapter.decorators = [
-    { type: Injectable },
-];
-/** @nocollapse */
-MomentDateAdapter.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
-];
 
 /**
  * @fileoverview added by tsickle
@@ -302,27 +295,8 @@ const MAT_MOMENT_DATE_FORMATS = {
 
 class MomentDateModule {
 }
-MomentDateModule.decorators = [
-    { type: NgModule, args: [{
-                providers: [
-                    MAT_DATE_LOCALE_PROVIDER,
-                    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
-                ],
-            },] },
-];
-/** @nocollapse */
-MomentDateModule.ctorParameters = () => [];
-const ɵ0 = MAT_MOMENT_DATE_FORMATS;
 class MatMomentDateModule {
 }
-MatMomentDateModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [MomentDateModule],
-                providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
-            },] },
-];
-/** @nocollapse */
-MatMomentDateModule.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
