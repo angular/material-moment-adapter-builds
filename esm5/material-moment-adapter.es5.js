@@ -16,6 +16,7 @@ import _rollupMoment__default from 'moment';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
@@ -39,7 +40,7 @@ function range(length, valueFunction) {
 /**
  * Adapts Moment.js Dates for use with Angular Material.
  */
-var MomentDateAdapter = (function (_super) {
+var MomentDateAdapter = /** @class */ (function (_super) {
     __extends(MomentDateAdapter, _super);
     function MomentDateAdapter(dateLocale) {
         var _this = _super.call(this) || this;
@@ -392,6 +393,7 @@ var MomentDateAdapter = (function (_super) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
@@ -409,7 +411,7 @@ var MAT_MOMENT_DATE_FORMATS = {
  * @suppress {checkTypes} checked by tsc
  */
 
-var MomentDateModule = (function () {
+var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
     }
     MomentDateModule.decorators = [
@@ -425,7 +427,7 @@ var MomentDateModule = (function () {
     return MomentDateModule;
 }());
 var ɵ0 = MAT_MOMENT_DATE_FORMATS;
-var MatMomentDateModule = (function () {
+var MatMomentDateModule = /** @class */ (function () {
     function MatMomentDateModule() {
     }
     MatMomentDateModule.decorators = [
