@@ -17,11 +17,6 @@ import _rollupMoment__default from 'moment';
  * @suppress {checkTypes} checked by tsc
  */
 
-// Depending on whether rollup is used, moment needs to be imported differently.
-// Since Moment.js doesn't have a default export, we normally need to import using the `* as`
-// syntax. However, rollup creates a synthetic default module and we thus need to import it using
-// the `default as` syntax.
-// TODO(mmalerba): See if we can clean this up at some point.
 var moment = _rollupMoment__default || _rollupMoment;
 /**
  * Creates an array and fills it with values.
