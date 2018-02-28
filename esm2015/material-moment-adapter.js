@@ -5,17 +5,16 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Inject, Injectable, NgModule, Optional } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER } from '@angular/material';
+import { Inject, Injectable, Optional, NgModule } from '@angular/core';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER, MAT_DATE_FORMATS } from '@angular/material';
 import * as _rollupMoment from 'moment';
-import _rollupMoment__default from 'moment';
+import _rollupMoment__default, {  } from 'moment';
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
-const moment = _rollupMoment__default || _rollupMoment;
+const /** @type {?} */ moment = _rollupMoment__default || _rollupMoment;
 /**
  * Creates an array and fills it with values.
  * @template T
@@ -279,7 +278,7 @@ MomentDateAdapter.ctorParameters = () => [
  * @suppress {checkTypes} checked by tsc
  */
 
-const MAT_MOMENT_DATE_FORMATS = {
+const /** @type {?} */ MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -295,7 +294,6 @@ const MAT_MOMENT_DATE_FORMATS = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
 class MomentDateModule {
 }
 MomentDateModule.decorators = [
@@ -328,9 +326,6 @@ MatMomentDateModule.ctorParameters = () => [];
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
- */
-/**
- * Generated bundle index. Do not edit.
  */
 
 export { MomentDateModule, MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };

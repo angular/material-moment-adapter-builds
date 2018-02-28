@@ -7,9 +7,9 @@
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material'), require('moment')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/material', 'moment'], factory) :
-	(factory((global.ng = global.ng || {}, global.ng['material-moment-adapter'] = global.ng['material-moment-adapter'] || {}),global.ng.core,global.ng.material,global.moment));
-}(this, (function (exports,_angular_core,_angular_material,_rollupMoment__default) { 'use strict';
+	typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', '@angular/core', '@angular/material', 'moment'], factory) :
+	(factory((global.ng = global.ng || {}, global.ng['material-moment-adapter'] = {}),global.ng.core,global.ng.material,global.moment));
+}(this, (function (exports,core,material,_rollupMoment__default) { 'use strict';
 
 var _rollupMoment__default__default = _rollupMoment__default['default'];
 
@@ -43,8 +43,7 @@ function __extends(d, b) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
-var moment = _rollupMoment__default__default || _rollupMoment__default;
+var /** @type {?} */ moment = _rollupMoment__default__default || _rollupMoment__default;
 /**
  * Creates an array and fills it with values.
  * @template T
@@ -402,21 +401,21 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         return moment.invalid();
     };
     MomentDateAdapter.decorators = [
-        { type: _angular_core.Injectable },
+        { type: core.Injectable },
     ];
     /** @nocollapse */
     MomentDateAdapter.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_material.MAT_DATE_LOCALE,] },] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [material.MAT_DATE_LOCALE,] },] },
     ]; };
     return MomentDateAdapter;
-}(_angular_material.DateAdapter));
+}(material.DateAdapter));
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
 
-var MAT_MOMENT_DATE_FORMATS = {
+var /** @type {?} */ MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -432,15 +431,14 @@ var MAT_MOMENT_DATE_FORMATS = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
 var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
     }
     MomentDateModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
+        { type: core.NgModule, args: [{
                     providers: [
-                        _angular_material.MAT_DATE_LOCALE_PROVIDER,
-                        { provide: _angular_material.DateAdapter, useClass: MomentDateAdapter, deps: [_angular_material.MAT_DATE_LOCALE] }
+                        material.MAT_DATE_LOCALE_PROVIDER,
+                        { provide: material.DateAdapter, useClass: MomentDateAdapter, deps: [material.MAT_DATE_LOCALE] }
                     ],
                 },] },
     ];
@@ -453,9 +451,9 @@ var MatMomentDateModule = /** @class */ (function () {
     function MatMomentDateModule() {
     }
     MatMomentDateModule.decorators = [
-        { type: _angular_core.NgModule, args: [{
+        { type: core.NgModule, args: [{
                     imports: [MomentDateModule],
-                    providers: [{ provide: _angular_material.MAT_DATE_FORMATS, useValue: ɵ0 }],
+                    providers: [{ provide: material.MAT_DATE_FORMATS, useValue: ɵ0 }],
                 },] },
     ];
     /** @nocollapse */
