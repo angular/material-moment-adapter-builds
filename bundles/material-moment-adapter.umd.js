@@ -437,7 +437,6 @@ var MomentDateModule = /** @class */ (function () {
     MomentDateModule.decorators = [
         { type: core.NgModule, args: [{
                     providers: [
-                        material.MAT_DATE_LOCALE_PROVIDER,
                         { provide: material.DateAdapter, useClass: MomentDateAdapter, deps: [material.MAT_DATE_LOCALE] }
                     ],
                 },] },

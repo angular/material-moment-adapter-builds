@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Inject, Injectable, Optional, NgModule } from '@angular/core';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_LOCALE_PROVIDER, MAT_DATE_FORMATS } from '@angular/material';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default, {  } from 'moment';
 
@@ -299,7 +299,6 @@ class MomentDateModule {
 MomentDateModule.decorators = [
     { type: NgModule, args: [{
                 providers: [
-                    MAT_DATE_LOCALE_PROVIDER,
                     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
                 ],
             },] },
