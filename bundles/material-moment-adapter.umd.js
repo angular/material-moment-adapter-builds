@@ -441,8 +441,6 @@ var MomentDateModule = /** @class */ (function () {
                     ],
                 },] },
     ];
-    /** @nocollapse */
-    MomentDateModule.ctorParameters = function () { return []; };
     return MomentDateModule;
 }());
 var ɵ0 = MAT_MOMENT_DATE_FORMATS;
@@ -455,8 +453,6 @@ var MatMomentDateModule = /** @class */ (function () {
                     providers: [{ provide: material.MAT_DATE_FORMATS, useValue: ɵ0 }],
                 },] },
     ];
-    /** @nocollapse */
-    MatMomentDateModule.ctorParameters = function () { return []; };
     return MatMomentDateModule;
 }());
 

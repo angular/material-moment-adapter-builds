@@ -303,8 +303,6 @@ MomentDateModule.decorators = [
                 ],
             },] },
 ];
-/** @nocollapse */
-MomentDateModule.ctorParameters = () => [];
 const ɵ0 = MAT_MOMENT_DATE_FORMATS;
 class MatMomentDateModule {
 }
@@ -314,8 +312,6 @@ MatMomentDateModule.decorators = [
                 providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
             },] },
 ];
-/** @nocollapse */
-MatMomentDateModule.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
