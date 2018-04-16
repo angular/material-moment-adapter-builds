@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-moment-adapter",
-  "version": "6.0.0-rc.5-7c1549a",
+  "version": "6.0.0-rc.11-c9f5be6",
   "description": "Angular Material Moment Adapter",
   "main": "./bundles/material-moment-adapter.umd.js",
   "module": "./esm5/material-moment-adapter.es5.js",
@@ -16,11 +16,18 @@
   },
   "homepage": "https://github.com/angular/material2#readme",
   "peerDependencies": {
-    "@angular/material": "6.0.0-rc.5-7c1549a",
+    "@angular/material": "6.0.0-rc.11-c9f5be6",
     "@angular/core": ">=6.0.0-beta.0 <7.0.0",
     "moment": "^2.18.1"
   },
   "dependencies": {
     "tslib": "^1.7.1"
+  },
+  "ng-update": {
+    "packageGroup": [
+      "@angular/material",
+      "@angular/cdk",
+      "@angular/material-moment-adapter"
+    ]
   }
 }
