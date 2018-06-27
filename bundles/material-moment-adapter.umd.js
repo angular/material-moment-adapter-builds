@@ -45,6 +45,22 @@ function __extends(d, b) {
  */
 var /** @type {?} */ moment = _rollupMoment__default__default || _rollupMoment__default;
 /**
+ * InjectionToken for moment date adapter to configure options.
+ */
+var /** @type {?} */ MAT_MOMENT_DATE_ADAPTER_OPTIONS = new core.InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
+    providedIn: 'root',
+    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
+});
+/**
+ * \@docs-private
+ * @return {?}
+ */
+function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
+    return {
+        useUtc: false
+    };
+}
+/**
  * Creates an array and fills it with values.
  * @template T
  * @param {?} length
@@ -63,8 +79,9 @@ function range(length, valueFunction) {
  */
 var MomentDateAdapter = /** @class */ (function (_super) {
     __extends(MomentDateAdapter, _super);
-    function MomentDateAdapter(dateLocale) {
+    function MomentDateAdapter(dateLocale, options) {
         var _this = _super.call(this) || this;
+        _this.options = options;
         _this.setLocale(dateLocale || moment.locale());
         return _this;
     }
@@ -235,7 +252,13 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         if (date < 1) {
             throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
         }
-        var /** @type {?} */ result = moment({ year: year, month: month, date: date }).locale(this.locale);
+        var /** @type {?} */ result;
+        if (this.options && this.options.useUtc) {
+            result = moment.utc({ year: year, month: month, date: date }).locale(this.locale);
+        }
+        else {
+            result = moment({ year: year, month: month, date: date }).locale(this.locale);
+        }
         // If the result isn't valid, the date must have been out of bounds for this month.
         if (!result.isValid()) {
             throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
@@ -406,6 +429,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     /** @nocollapse */
     MomentDateAdapter.ctorParameters = function () { return [
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [material.MAT_DATE_LOCALE,] },] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] },] },
     ]; };
     return MomentDateAdapter;
 }(material.DateAdapter));
@@ -437,7 +461,11 @@ var MomentDateModule = /** @class */ (function () {
     MomentDateModule.decorators = [
         { type: core.NgModule, args: [{
                     providers: [
-                        { provide: material.DateAdapter, useClass: MomentDateAdapter, deps: [material.MAT_DATE_LOCALE] }
+                        {
+                            provide: material.DateAdapter,
+                            useClass: MomentDateAdapter,
+                            deps: [material.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+                        }
                     ],
                 },] },
     ];
@@ -458,6 +486,8 @@ var MatMomentDateModule = /** @class */ (function () {
 
 exports.MomentDateModule = MomentDateModule;
 exports.MatMomentDateModule = MatMomentDateModule;
+exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS = MAT_MOMENT_DATE_ADAPTER_OPTIONS;
+exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY = MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY;
 exports.MomentDateAdapter = MomentDateAdapter;
 exports.MAT_MOMENT_DATE_FORMATS = MAT_MOMENT_DATE_FORMATS;
 

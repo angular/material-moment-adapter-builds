@@ -1,9 +1,31 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { InjectionToken } from '@angular/core';
 import { DateAdapter } from '@angular/material';
 import { Moment } from 'moment';
+/** Configurable options for {@see MomentDateAdapter}. */
+export interface MatMomentDateAdapterOptions {
+    /**
+     * Turns the use of utc dates on or off.
+     * Changing this will change how Angular Material components like DatePicker output dates.
+     * {@default false}
+     */
+    useUtc: boolean;
+}
+/** InjectionToken for moment date adapter to configure options. */
+export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
+/** @docs-private */
+export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 /** Adapts Moment.js Dates for use with Angular Material. */
 export declare class MomentDateAdapter extends DateAdapter<Moment> {
+    private options;
     private _localeData;
-    constructor(dateLocale: string);
+    constructor(dateLocale: string, options?: MatMomentDateAdapterOptions | undefined);
     setLocale(locale: string): void;
     getYear(date: Moment): number;
     getMonth(date: Moment): number;

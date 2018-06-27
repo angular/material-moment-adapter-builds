@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { __extends } from 'tslib';
-import { Inject, Injectable, Optional, NgModule } from '@angular/core';
+import { Inject, Injectable, Optional, InjectionToken, NgModule } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default, {  } from 'moment';
@@ -16,6 +16,22 @@ import _rollupMoment__default, {  } from 'moment';
  * @suppress {checkTypes} checked by tsc
  */
 var /** @type {?} */ moment = _rollupMoment__default || _rollupMoment;
+/**
+ * InjectionToken for moment date adapter to configure options.
+ */
+var /** @type {?} */ MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
+    providedIn: 'root',
+    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
+});
+/**
+ * \@docs-private
+ * @return {?}
+ */
+function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
+    return {
+        useUtc: false
+    };
+}
 /**
  * Creates an array and fills it with values.
  * @template T
@@ -35,8 +51,9 @@ function range(length, valueFunction) {
  */
 var MomentDateAdapter = /** @class */ (function (_super) {
     __extends(MomentDateAdapter, _super);
-    function MomentDateAdapter(dateLocale) {
+    function MomentDateAdapter(dateLocale, options) {
         var _this = _super.call(this) || this;
+        _this.options = options;
         _this.setLocale(dateLocale || moment.locale());
         return _this;
     }
@@ -207,7 +224,13 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         if (date < 1) {
             throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
         }
-        var /** @type {?} */ result = moment({ year: year, month: month, date: date }).locale(this.locale);
+        var /** @type {?} */ result;
+        if (this.options && this.options.useUtc) {
+            result = moment.utc({ year: year, month: month, date: date }).locale(this.locale);
+        }
+        else {
+            result = moment({ year: year, month: month, date: date }).locale(this.locale);
+        }
         // If the result isn't valid, the date must have been out of bounds for this month.
         if (!result.isValid()) {
             throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
@@ -378,6 +401,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     /** @nocollapse */
     MomentDateAdapter.ctorParameters = function () { return [
         { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] },] },
     ]; };
     return MomentDateAdapter;
 }(DateAdapter));
@@ -409,7 +433,11 @@ var MomentDateModule = /** @class */ (function () {
     MomentDateModule.decorators = [
         { type: NgModule, args: [{
                     providers: [
-                        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] }
+                        {
+                            provide: DateAdapter,
+                            useClass: MomentDateAdapter,
+                            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+                        }
                     ],
                 },] },
     ];
@@ -438,5 +466,5 @@ var MatMomentDateModule = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 
-export { MomentDateModule, MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
+export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.es5.js.map
