@@ -224,13 +224,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         if (date < 1) {
             throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
         }
-        var /** @type {?} */ result;
-        if (this.options && this.options.useUtc) {
-            result = moment.utc({ year: year, month: month, date: date }).locale(this.locale);
-        }
-        else {
-            result = moment({ year: year, month: month, date: date }).locale(this.locale);
-        }
+        var /** @type {?} */ result = this._createMoment({ year: year, month: month, date: date }).locale(this.locale);
         // If the result isn't valid, the date must have been out of bounds for this month.
         if (!result.isValid()) {
             throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
@@ -244,7 +238,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        return moment().locale(this.locale);
+        return this._createMoment().locale(this.locale);
     };
     /**
      * @param {?} value
@@ -258,9 +252,9 @@ var MomentDateAdapter = /** @class */ (function (_super) {
      */
     function (value, parseFormat) {
         if (value && typeof value == 'string') {
-            return moment(value, parseFormat, this.locale);
+            return this._createMoment(value, parseFormat, this.locale);
         }
-        return value ? moment(value).locale(this.locale) : null;
+        return value ? this._createMoment(value).locale(this.locale) : null;
     };
     /**
      * @param {?} date
@@ -351,13 +345,13 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     function (value) {
         var /** @type {?} */ date;
         if (value instanceof Date) {
-            date = moment(value);
+            date = this._createMoment(value);
         }
         if (typeof value === 'string') {
             if (!value) {
                 return null;
             }
-            date = moment(value, moment.ISO_8601).locale(this.locale);
+            date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
         }
         if (date && this.isValid(date)) {
             return date;
@@ -394,6 +388,23 @@ var MomentDateAdapter = /** @class */ (function (_super) {
      */
     function () {
         return moment.invalid();
+    };
+    /**
+     * Creates a Moment instance while respecting the current UTC settings.
+     * @param {...?} args
+     * @return {?}
+     */
+    MomentDateAdapter.prototype._createMoment = /**
+     * Creates a Moment instance while respecting the current UTC settings.
+     * @param {...?} args
+     * @return {?}
+     */
+    function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return (this.options && this.options.useUtc) ? moment.utc.apply(moment, args) : moment.apply(void 0, args);
     };
     MomentDateAdapter.decorators = [
         { type: Injectable },

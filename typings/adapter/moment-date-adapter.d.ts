@@ -55,4 +55,6 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     isDateInstance(obj: any): boolean;
     isValid(date: Moment): boolean;
     invalid(): Moment;
+    /** Creates a Moment instance while respecting the current UTC settings. */
+    private _createMoment(...args);
 }
