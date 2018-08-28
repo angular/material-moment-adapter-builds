@@ -23,7 +23,7 @@ export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDa
 export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 /** Adapts Moment.js Dates for use with Angular Material. */
 export declare class MomentDateAdapter extends DateAdapter<Moment> {
-    private options;
+    private options?;
     private _localeData;
     constructor(dateLocale: string, options?: MatMomentDateAdapterOptions | undefined);
     setLocale(locale: string): void;
@@ -56,5 +56,5 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     isValid(date: Moment): boolean;
     invalid(): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
-    private _createMoment(...args);
+    private _createMoment;
 }

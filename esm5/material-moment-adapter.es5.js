@@ -15,11 +15,12 @@ import _rollupMoment__default, {  } from 'moment';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var /** @type {?} */ moment = _rollupMoment__default || _rollupMoment;
-/**
+/** @type {?} */
+var moment = _rollupMoment__default || _rollupMoment;
+/** *
  * InjectionToken for moment date adapter to configure options.
- */
-var /** @type {?} */ MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
+  @type {?} */
+var MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
     providedIn: 'root',
     factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
 });
@@ -40,8 +41,9 @@ function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
  * @return {?}
  */
 function range(length, valueFunction) {
-    var /** @type {?} */ valuesArray = Array(length);
-    for (var /** @type {?} */ i = 0; i < length; i++) {
+    /** @type {?} */
+    var valuesArray = Array(length);
+    for (var i = 0; i < length; i++) {
         valuesArray[i] = valueFunction(i);
     }
     return valuesArray;
@@ -68,7 +70,8 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     function (locale) {
         var _this = this;
         _super.prototype.setLocale.call(this, locale);
-        var /** @type {?} */ momentLocaleData = moment.localeData(locale);
+        /** @type {?} */
+        var momentLocaleData = moment.localeData(locale);
         this._localeData = {
             firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
             longMonths: momentLocaleData.months(),
@@ -224,7 +227,8 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         if (date < 1) {
             throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
         }
-        var /** @type {?} */ result = this._createMoment({ year: year, month: month, date: date }).locale(this.locale);
+        /** @type {?} */
+        var result = this._createMoment({ year: year, month: month, date: date }).locale(this.locale);
         // If the result isn't valid, the date must have been out of bounds for this month.
         if (!result.isValid()) {
             throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
@@ -343,7 +347,8 @@ var MomentDateAdapter = /** @class */ (function (_super) {
      * @return {?}
      */
     function (value) {
-        var /** @type {?} */ date;
+        /** @type {?} */
+        var date;
         if (value instanceof Date) {
             date = this._createMoment(value);
         }
@@ -411,8 +416,8 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     MomentDateAdapter.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
-        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] },] },
+        { type: String, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] }] },
+        { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
     ]; };
     return MomentDateAdapter;
 }(DateAdapter));
@@ -422,7 +427,8 @@ var MomentDateAdapter = /** @class */ (function (_super) {
  * @suppress {checkTypes} checked by tsc
  */
 
-var /** @type {?} */ MAT_MOMENT_DATE_FORMATS = {
+/** @type {?} */
+var MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -477,5 +483,5 @@ var MatMomentDateModule = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 
-export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
+export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.es5.js.map

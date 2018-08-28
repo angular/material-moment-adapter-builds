@@ -14,11 +14,12 @@ import _rollupMoment__default, {  } from 'moment';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-const /** @type {?} */ moment = _rollupMoment__default || _rollupMoment;
-/**
+/** @type {?} */
+const moment = _rollupMoment__default || _rollupMoment;
+/** *
  * InjectionToken for moment date adapter to configure options.
- */
-const /** @type {?} */ MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
+  @type {?} */
+const MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
     providedIn: 'root',
     factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
 });
@@ -39,8 +40,9 @@ function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
  * @return {?}
  */
 function range(length, valueFunction) {
-    const /** @type {?} */ valuesArray = Array(length);
-    for (let /** @type {?} */ i = 0; i < length; i++) {
+    /** @type {?} */
+    const valuesArray = Array(length);
+    for (let i = 0; i < length; i++) {
         valuesArray[i] = valueFunction(i);
     }
     return valuesArray;
@@ -64,7 +66,8 @@ class MomentDateAdapter extends DateAdapter {
      */
     setLocale(locale) {
         super.setLocale(locale);
-        let /** @type {?} */ momentLocaleData = moment.localeData(locale);
+        /** @type {?} */
+        let momentLocaleData = moment.localeData(locale);
         this._localeData = {
             firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
             longMonths: momentLocaleData.months(),
@@ -172,7 +175,8 @@ class MomentDateAdapter extends DateAdapter {
         if (date < 1) {
             throw Error(`Invalid date "${date}". Date has to be greater than 0.`);
         }
-        const /** @type {?} */ result = this._createMoment({ year, month, date }).locale(this.locale);
+        /** @type {?} */
+        const result = this._createMoment({ year, month, date }).locale(this.locale);
         // If the result isn't valid, the date must have been out of bounds for this month.
         if (!result.isValid()) {
             throw Error(`Invalid date "${date}" for month with index "${month}".`);
@@ -247,7 +251,8 @@ class MomentDateAdapter extends DateAdapter {
      * @return {?}
      */
     deserialize(value) {
-        let /** @type {?} */ date;
+        /** @type {?} */
+        let date;
         if (value instanceof Date) {
             date = this._createMoment(value);
         }
@@ -296,8 +301,8 @@ MomentDateAdapter.decorators = [
 ];
 /** @nocollapse */
 MomentDateAdapter.ctorParameters = () => [
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] },] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] },] },
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
 ];
 
 /**
@@ -305,7 +310,8 @@ MomentDateAdapter.ctorParameters = () => [
  * @suppress {checkTypes} checked by tsc
  */
 
-const /** @type {?} */ MAT_MOMENT_DATE_FORMATS = {
+/** @type {?} */
+const MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
     },
@@ -354,5 +360,5 @@ MatMomentDateModule.decorators = [
  * @suppress {checkTypes} checked by tsc
  */
 
-export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
+export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
 //# sourceMappingURL=material-moment-adapter.js.map
