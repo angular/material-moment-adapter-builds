@@ -7,7 +7,7 @@
  */
 import { __extends } from 'tslib';
 import { Inject, Injectable, Optional, InjectionToken, NgModule } from '@angular/core';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default, {  } from 'moment';
 
