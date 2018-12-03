@@ -44,13 +44,14 @@ function __extends(d, b) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var moment = _rollupMoment__default__default || _rollupMoment__default;
-/** *
+/**
  * InjectionToken for moment date adapter to configure options.
-  @type {?} */
+ * @type {?}
+ */
 var MAT_MOMENT_DATE_ADAPTER_OPTIONS = new core.InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
     providedIn: 'root',
     factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
@@ -425,13 +426,16 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     function () {
         return moment.invalid();
     };
+    /** Creates a Moment instance while respecting the current UTC settings. */
     /**
      * Creates a Moment instance while respecting the current UTC settings.
+     * @private
      * @param {...?} args
      * @return {?}
      */
     MomentDateAdapter.prototype._createMoment = /**
      * Creates a Moment instance while respecting the current UTC settings.
+     * @private
      * @param {...?} args
      * @return {?}
      */
@@ -455,7 +459,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /** @type {?} */
@@ -473,7 +477,7 @@ var MAT_MOMENT_DATE_FORMATS = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
