@@ -382,7 +382,11 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         /** @type {?} */
         var date;
         if (value instanceof Date) {
-            date = this._createMoment(value);
+            date = this._createMoment(value).locale(this.locale);
+        }
+        else if (this.isDateInstance(value)) {
+            // Note: assumes that cloning also sets the correct locale.
+            return this.clone(value);
         }
         if (typeof value === 'string') {
             if (!value) {
@@ -391,7 +395,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
             date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
         }
         if (date && this.isValid(date)) {
-            return date;
+            return this._createMoment(date).locale(this.locale);
         }
         return _super.prototype.deserialize.call(this, value);
     };
