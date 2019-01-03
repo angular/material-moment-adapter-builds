@@ -255,7 +255,11 @@ class MomentDateAdapter extends DateAdapter {
         /** @type {?} */
         let date;
         if (value instanceof Date) {
-            date = this._createMoment(value);
+            date = this._createMoment(value).locale(this.locale);
+        }
+        else if (this.isDateInstance(value)) {
+            // Note: assumes that cloning also sets the correct locale.
+            return this.clone(value);
         }
         if (typeof value === 'string') {
             if (!value) {
@@ -264,7 +268,7 @@ class MomentDateAdapter extends DateAdapter {
             date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
         }
         if (date && this.isValid(date)) {
-            return date;
+            return this._createMoment(date).locale(this.locale);
         }
         return super.deserialize(value);
     }
