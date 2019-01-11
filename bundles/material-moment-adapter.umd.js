@@ -8,7 +8,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('moment')) :
 	typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', '@angular/core', '@angular/material/core', 'moment'], factory) :
-	(factory((global.ng = global.ng || {}, global.ng['material-moment-adapter'] = {}),global.ng.core,global.ng.material.core,global.moment));
+	(factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}),global.ng.core,global.ng.material.core,global.moment));
 }(this, (function (exports,core,core$1,_rollupMoment__default) { 'use strict';
 
 var _rollupMoment__default__default = _rollupMoment__default['default'];
