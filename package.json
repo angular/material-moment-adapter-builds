@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-moment-adapter",
-  "version": "7.3.4-747e455",
+  "version": "7.3.4-d525f9c",
   "description": "Angular Material Moment Adapter",
   "main": "./bundles/material-moment-adapter.umd.js",
   "module": "./esm5/material-moment-adapter.es5.js",
@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/angular/material2#readme",
   "peerDependencies": {
-    "@angular/material": "7.3.4-747e455",
+    "@angular/material": "7.3.4-d525f9c",
     "@angular/core": ">=7.0.0",
     "moment": "^2.18.1"
   },
@@ -30,7 +30,7 @@
       "@angular/material-moment-adapter"
     ]
   },
-  "releaseGitCommitSha": "747e45532b8364a39488e0cb35aabd2db630c202",
+  "releaseGitCommitSha": "d525f9c39d3b55019ffa3b4cb3a25751bb28067e",
   "releaseGitBranch": "master",
   "releaseGitUser": " <>"
 }
