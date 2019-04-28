@@ -44,7 +44,7 @@ function __extends(d, b) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var moment = _rollupMoment__default__default || _rollupMoment__default;
@@ -108,7 +108,11 @@ var MomentDateAdapter = /** @class */ (function (_super) {
             firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
             longMonths: momentLocaleData.months(),
             shortMonths: momentLocaleData.monthsShort(),
-            dates: range(31, function (i) { return _this.createDate(2017, 0, i + 1).format('D'); }),
+            dates: range(31, (/**
+             * @param {?} i
+             * @return {?}
+             */
+            function (i) { return _this.createDate(2017, 0, i + 1).format('D'); })),
             longDaysOfWeek: momentLocaleData.weekdays(),
             shortDaysOfWeek: momentLocaleData.weekdaysShort(),
             narrowDaysOfWeek: momentLocaleData.weekdaysMin(),
@@ -463,7 +467,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /** @type {?} */
@@ -481,7 +485,7 @@ var MAT_MOMENT_DATE_FORMATS = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
