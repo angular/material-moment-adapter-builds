@@ -23,9 +23,9 @@ export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDa
 export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 /** Adapts Moment.js Dates for use with Angular Material. */
 export declare class MomentDateAdapter extends DateAdapter<Moment> {
-    private options?;
+    private _options?;
     private _localeData;
-    constructor(dateLocale: string, options?: MatMomentDateAdapterOptions | undefined);
+    constructor(dateLocale: string, _options?: MatMomentDateAdapterOptions | undefined);
     setLocale(locale: string): void;
     getYear(date: Moment): number;
     getMonth(date: Moment): number;

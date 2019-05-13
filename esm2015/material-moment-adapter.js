@@ -54,11 +54,11 @@ function range(length, valueFunction) {
 class MomentDateAdapter extends DateAdapter {
     /**
      * @param {?} dateLocale
-     * @param {?=} options
+     * @param {?=} _options
      */
-    constructor(dateLocale, options) {
+    constructor(dateLocale, _options) {
         super();
-        this.options = options;
+        this._options = _options;
         this.setLocale(dateLocale || moment.locale());
     }
     /**
@@ -303,7 +303,7 @@ class MomentDateAdapter extends DateAdapter {
      * @return {?}
      */
     _createMoment(...args) {
-        return (this.options && this.options.useUtc) ? moment.utc(...args) : moment(...args);
+        return (this._options && this._options.useUtc) ? moment.utc(...args) : moment(...args);
     }
 }
 MomentDateAdapter.decorators = [

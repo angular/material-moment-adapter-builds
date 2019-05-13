@@ -85,9 +85,9 @@ function range(length, valueFunction) {
  */
 var MomentDateAdapter = /** @class */ (function (_super) {
     __extends(MomentDateAdapter, _super);
-    function MomentDateAdapter(dateLocale, options) {
+    function MomentDateAdapter(dateLocale, _options) {
         var _this = _super.call(this) || this;
-        _this.options = options;
+        _this._options = _options;
         _this.setLocale(dateLocale || moment.locale());
         return _this;
     }
@@ -452,7 +452,7 @@ var MomentDateAdapter = /** @class */ (function (_super) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return (this.options && this.options.useUtc) ? moment.utc.apply(moment, args) : moment.apply(void 0, args);
+        return (this._options && this._options.useUtc) ? moment.utc.apply(moment, args) : moment.apply(void 0, args);
     };
     MomentDateAdapter.decorators = [
         { type: core.Injectable },
