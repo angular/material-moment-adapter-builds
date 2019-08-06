@@ -11,11 +11,16 @@ import { Moment } from 'moment';
 /** Configurable options for {@see MomentDateAdapter}. */
 export interface MatMomentDateAdapterOptions {
     /**
+     * When enabled, the dates have to match the format exactly.
+     * See https://momentjs.com/guides/#/parsing/strict-mode/.
+     */
+    strict?: boolean;
+    /**
      * Turns the use of utc dates on or off.
      * Changing this will change how Angular Material components like DatePicker output dates.
      * {@default false}
      */
-    useUtc: boolean;
+    useUtc?: boolean;
 }
 /** InjectionToken for moment date adapter to configure options. */
 export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;

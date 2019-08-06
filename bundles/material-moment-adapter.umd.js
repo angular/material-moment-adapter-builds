@@ -438,21 +438,24 @@ var MomentDateAdapter = /** @class */ (function (_super) {
     /**
      * Creates a Moment instance while respecting the current UTC settings.
      * @private
-     * @param {...?} args
+     * @param {?} date
+     * @param {?=} format
+     * @param {?=} locale
      * @return {?}
      */
     MomentDateAdapter.prototype._createMoment = /**
      * Creates a Moment instance while respecting the current UTC settings.
      * @private
-     * @param {...?} args
+     * @param {?} date
+     * @param {?=} format
+     * @param {?=} locale
      * @return {?}
      */
-    function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        return (this._options && this._options.useUtc) ? moment.utc.apply(moment, args) : moment.apply(void 0, args);
+    function (date, format, locale) {
+        var _a = this._options || {}, strict = _a.strict, useUtc = _a.useUtc;
+        return useUtc
+            ? moment.utc(date, format, locale, strict)
+            : moment(date, format, locale, strict);
     };
     MomentDateAdapter.decorators = [
         { type: core.Injectable },
