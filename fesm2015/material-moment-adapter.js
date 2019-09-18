@@ -1,11 +1,4 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-import { Inject, Injectable, Optional, InjectionToken, NgModule } from '@angular/core';
+import { InjectionToken, Injectable, Optional, Inject, NgModule } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default, {  } from 'moment';
@@ -16,6 +9,26 @@ import _rollupMoment__default, {  } from 'moment';
  */
 /** @type {?} */
 const moment = _rollupMoment__default || _rollupMoment;
+/**
+ * Configurable options for {\@see MomentDateAdapter}.
+ * @record
+ */
+function MatMomentDateAdapterOptions() { }
+if (false) {
+    /**
+     * When enabled, the dates have to match the format exactly.
+     * See https://momentjs.com/guides/#/parsing/strict-mode/.
+     * @type {?|undefined}
+     */
+    MatMomentDateAdapterOptions.prototype.strict;
+    /**
+     * Turns the use of utc dates on or off.
+     * Changing this will change how Angular Material components like DatePicker output dates.
+     * {\@default false}
+     * @type {?|undefined}
+     */
+    MatMomentDateAdapterOptions.prototype.useUtc;
+}
 /**
  * InjectionToken for moment date adapter to configure options.
  * @type {?}
@@ -312,19 +325,37 @@ class MomentDateAdapter extends DateAdapter {
     }
 }
 MomentDateAdapter.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 MomentDateAdapter.ctorParameters = () => [
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    MomentDateAdapter.prototype._localeData;
+    /**
+     * @type {?}
+     * @private
+     */
+    MomentDateAdapter.prototype._options;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /** @type {?} */
 const MAT_MOMENT_DATE_FORMATS = {
     parse: {
@@ -353,7 +384,7 @@ MomentDateModule.decorators = [
                         deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
                     }
                 ],
-            },] },
+            },] }
 ];
 const ɵ0 = MAT_MOMENT_DATE_FORMATS;
 class MatMomentDateModule {
@@ -362,7 +393,7 @@ MatMomentDateModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MomentDateModule],
                 providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
-            },] },
+            },] }
 ];
 
 /**
@@ -371,8 +402,7 @@ MatMomentDateModule.decorators = [
  */
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated bundle index. Do not edit.
  */
 
 export { MomentDateModule, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };

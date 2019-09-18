@@ -1,532 +1,271 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('moment')) :
-	typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', '@angular/core', '@angular/material/core', 'moment'], factory) :
-	(factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}),global.ng.core,global.ng.material.core,global.moment));
-}(this, (function (exports,core,core$1,_rollupMoment__default) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('@angular/material/core'), require('moment')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', 'tslib', '@angular/core', '@angular/material/core', 'moment'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.tslib, global.ng.core, global.ng.material.core, global.moment));
+}(this, function (exports, tslib_1, core, core$1, _rollupMoment) { 'use strict';
 
-var _rollupMoment__default__default = _rollupMoment__default['default'];
+    var _rollupMoment__default = 'default' in _rollupMoment ? _rollupMoment['default'] : _rollupMoment;
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-var moment = _rollupMoment__default__default || _rollupMoment__default;
-/**
- * InjectionToken for moment date adapter to configure options.
- * @type {?}
- */
-var MAT_MOMENT_DATE_ADAPTER_OPTIONS = new core.InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
-    providedIn: 'root',
-    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
-});
-/**
- * \@docs-private
- * @return {?}
- */
-function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
-    return {
-        useUtc: false
-    };
-}
-/**
- * Creates an array and fills it with values.
- * @template T
- * @param {?} length
- * @param {?} valueFunction
- * @return {?}
- */
-function range(length, valueFunction) {
-    /** @type {?} */
-    var valuesArray = Array(length);
-    for (var i = 0; i < length; i++) {
-        valuesArray[i] = valueFunction(i);
-    }
-    return valuesArray;
-}
-/**
- * Adapts Moment.js Dates for use with Angular Material.
- */
-var MomentDateAdapter = /** @class */ (function (_super) {
-    __extends(MomentDateAdapter, _super);
-    function MomentDateAdapter(dateLocale, _options) {
-        var _this = _super.call(this) || this;
-        _this._options = _options;
-        _this.setLocale(dateLocale || moment.locale());
-        return _this;
-    }
     /**
-     * @param {?} locale
-     * @return {?}
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
      */
-    MomentDateAdapter.prototype.setLocale = /**
-     * @param {?} locale
-     * @return {?}
-     */
-    function (locale) {
-        var _this = this;
-        _super.prototype.setLocale.call(this, locale);
-        /** @type {?} */
-        var momentLocaleData = moment.localeData(locale);
-        this._localeData = {
-            firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
-            longMonths: momentLocaleData.months(),
-            shortMonths: momentLocaleData.monthsShort(),
-            dates: range(31, (/**
-             * @param {?} i
-             * @return {?}
-             */
-            function (i) { return _this.createDate(2017, 0, i + 1).format('D'); })),
-            longDaysOfWeek: momentLocaleData.weekdays(),
-            shortDaysOfWeek: momentLocaleData.weekdaysShort(),
-            narrowDaysOfWeek: momentLocaleData.weekdaysMin(),
+    var moment = _rollupMoment__default || _rollupMoment;
+    /** InjectionToken for moment date adapter to configure options. */
+    var MAT_MOMENT_DATE_ADAPTER_OPTIONS = new core.InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
+        providedIn: 'root',
+        factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
+    });
+    /** @docs-private */
+    function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
+        return {
+            useUtc: false
         };
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getYear = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).year();
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getMonth = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).month();
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getDate = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).date();
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getDayOfWeek = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).day();
-    };
-    /**
-     * @param {?} style
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getMonthNames = /**
-     * @param {?} style
-     * @return {?}
-     */
-    function (style) {
-        // Moment.js doesn't support narrow month names, so we just use short if narrow is requested.
-        return style == 'long' ? this._localeData.longMonths : this._localeData.shortMonths;
-    };
-    /**
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getDateNames = /**
-     * @return {?}
-     */
-    function () {
-        return this._localeData.dates;
-    };
-    /**
-     * @param {?} style
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getDayOfWeekNames = /**
-     * @param {?} style
-     * @return {?}
-     */
-    function (style) {
-        if (style == 'long') {
-            return this._localeData.longDaysOfWeek;
+    }
+    /** Creates an array and fills it with values. */
+    function range(length, valueFunction) {
+        var valuesArray = Array(length);
+        for (var i = 0; i < length; i++) {
+            valuesArray[i] = valueFunction(i);
         }
-        if (style == 'short') {
-            return this._localeData.shortDaysOfWeek;
+        return valuesArray;
+    }
+    /** Adapts Moment.js Dates for use with Angular Material. */
+    var MomentDateAdapter = /** @class */ (function (_super) {
+        tslib_1.__extends(MomentDateAdapter, _super);
+        function MomentDateAdapter(dateLocale, _options) {
+            var _this = _super.call(this) || this;
+            _this._options = _options;
+            _this.setLocale(dateLocale || moment.locale());
+            return _this;
         }
-        return this._localeData.narrowDaysOfWeek;
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getYearName = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).format('YYYY');
-    };
-    /**
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getFirstDayOfWeek = /**
-     * @return {?}
-     */
-    function () {
-        return this._localeData.firstDayOfWeek;
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.getNumDaysInMonth = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).daysInMonth();
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.clone = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return date.clone().locale(this.locale);
-    };
-    /**
-     * @param {?} year
-     * @param {?} month
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.createDate = /**
-     * @param {?} year
-     * @param {?} month
-     * @param {?} date
-     * @return {?}
-     */
-    function (year, month, date) {
-        // Moment.js will create an invalid date if any of the components are out of bounds, but we
-        // explicitly check each case so we can throw more descriptive errors.
-        if (month < 0 || month > 11) {
-            throw Error("Invalid month index \"" + month + "\". Month index has to be between 0 and 11.");
-        }
-        if (date < 1) {
-            throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
-        }
-        /** @type {?} */
-        var result = this._createMoment({ year: year, month: month, date: date }).locale(this.locale);
-        // If the result isn't valid, the date must have been out of bounds for this month.
-        if (!result.isValid()) {
-            throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
-        }
-        return result;
-    };
-    /**
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.today = /**
-     * @return {?}
-     */
-    function () {
-        return this._createMoment().locale(this.locale);
-    };
-    /**
-     * @param {?} value
-     * @param {?} parseFormat
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.parse = /**
-     * @param {?} value
-     * @param {?} parseFormat
-     * @return {?}
-     */
-    function (value, parseFormat) {
-        if (value && typeof value == 'string') {
-            return this._createMoment(value, parseFormat, this.locale);
-        }
-        return value ? this._createMoment(value).locale(this.locale) : null;
-    };
-    /**
-     * @param {?} date
-     * @param {?} displayFormat
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.format = /**
-     * @param {?} date
-     * @param {?} displayFormat
-     * @return {?}
-     */
-    function (date, displayFormat) {
-        date = this.clone(date);
-        if (!this.isValid(date)) {
-            throw Error('MomentDateAdapter: Cannot format invalid date.');
-        }
-        return date.format(displayFormat);
-    };
-    /**
-     * @param {?} date
-     * @param {?} years
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.addCalendarYears = /**
-     * @param {?} date
-     * @param {?} years
-     * @return {?}
-     */
-    function (date, years) {
-        return this.clone(date).add({ years: years });
-    };
-    /**
-     * @param {?} date
-     * @param {?} months
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.addCalendarMonths = /**
-     * @param {?} date
-     * @param {?} months
-     * @return {?}
-     */
-    function (date, months) {
-        return this.clone(date).add({ months: months });
-    };
-    /**
-     * @param {?} date
-     * @param {?} days
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.addCalendarDays = /**
-     * @param {?} date
-     * @param {?} days
-     * @return {?}
-     */
-    function (date, days) {
-        return this.clone(date).add({ days: days });
-    };
-    /**
-     * @param {?} date
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.toIso8601 = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).format();
-    };
-    /**
-     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
-     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
-     * string into null. Returns an invalid date for all other values.
-     */
-    /**
-     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
-     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
-     * string into null. Returns an invalid date for all other values.
-     * @param {?} value
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.deserialize = /**
-     * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
-     * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
-     * string into null. Returns an invalid date for all other values.
-     * @param {?} value
-     * @return {?}
-     */
-    function (value) {
-        /** @type {?} */
-        var date;
-        if (value instanceof Date) {
-            date = this._createMoment(value).locale(this.locale);
-        }
-        else if (this.isDateInstance(value)) {
-            // Note: assumes that cloning also sets the correct locale.
-            return this.clone(value);
-        }
-        if (typeof value === 'string') {
-            if (!value) {
-                return null;
+        MomentDateAdapter.prototype.setLocale = function (locale) {
+            var _this = this;
+            _super.prototype.setLocale.call(this, locale);
+            var momentLocaleData = moment.localeData(locale);
+            this._localeData = {
+                firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
+                longMonths: momentLocaleData.months(),
+                shortMonths: momentLocaleData.monthsShort(),
+                dates: range(31, function (i) { return _this.createDate(2017, 0, i + 1).format('D'); }),
+                longDaysOfWeek: momentLocaleData.weekdays(),
+                shortDaysOfWeek: momentLocaleData.weekdaysShort(),
+                narrowDaysOfWeek: momentLocaleData.weekdaysMin(),
+            };
+        };
+        MomentDateAdapter.prototype.getYear = function (date) {
+            return this.clone(date).year();
+        };
+        MomentDateAdapter.prototype.getMonth = function (date) {
+            return this.clone(date).month();
+        };
+        MomentDateAdapter.prototype.getDate = function (date) {
+            return this.clone(date).date();
+        };
+        MomentDateAdapter.prototype.getDayOfWeek = function (date) {
+            return this.clone(date).day();
+        };
+        MomentDateAdapter.prototype.getMonthNames = function (style) {
+            // Moment.js doesn't support narrow month names, so we just use short if narrow is requested.
+            return style == 'long' ? this._localeData.longMonths : this._localeData.shortMonths;
+        };
+        MomentDateAdapter.prototype.getDateNames = function () {
+            return this._localeData.dates;
+        };
+        MomentDateAdapter.prototype.getDayOfWeekNames = function (style) {
+            if (style == 'long') {
+                return this._localeData.longDaysOfWeek;
             }
-            date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
+            if (style == 'short') {
+                return this._localeData.shortDaysOfWeek;
+            }
+            return this._localeData.narrowDaysOfWeek;
+        };
+        MomentDateAdapter.prototype.getYearName = function (date) {
+            return this.clone(date).format('YYYY');
+        };
+        MomentDateAdapter.prototype.getFirstDayOfWeek = function () {
+            return this._localeData.firstDayOfWeek;
+        };
+        MomentDateAdapter.prototype.getNumDaysInMonth = function (date) {
+            return this.clone(date).daysInMonth();
+        };
+        MomentDateAdapter.prototype.clone = function (date) {
+            return date.clone().locale(this.locale);
+        };
+        MomentDateAdapter.prototype.createDate = function (year, month, date) {
+            // Moment.js will create an invalid date if any of the components are out of bounds, but we
+            // explicitly check each case so we can throw more descriptive errors.
+            if (month < 0 || month > 11) {
+                throw Error("Invalid month index \"" + month + "\". Month index has to be between 0 and 11.");
+            }
+            if (date < 1) {
+                throw Error("Invalid date \"" + date + "\". Date has to be greater than 0.");
+            }
+            var result = this._createMoment({ year: year, month: month, date: date }).locale(this.locale);
+            // If the result isn't valid, the date must have been out of bounds for this month.
+            if (!result.isValid()) {
+                throw Error("Invalid date \"" + date + "\" for month with index \"" + month + "\".");
+            }
+            return result;
+        };
+        MomentDateAdapter.prototype.today = function () {
+            return this._createMoment().locale(this.locale);
+        };
+        MomentDateAdapter.prototype.parse = function (value, parseFormat) {
+            if (value && typeof value == 'string') {
+                return this._createMoment(value, parseFormat, this.locale);
+            }
+            return value ? this._createMoment(value).locale(this.locale) : null;
+        };
+        MomentDateAdapter.prototype.format = function (date, displayFormat) {
+            date = this.clone(date);
+            if (!this.isValid(date)) {
+                throw Error('MomentDateAdapter: Cannot format invalid date.');
+            }
+            return date.format(displayFormat);
+        };
+        MomentDateAdapter.prototype.addCalendarYears = function (date, years) {
+            return this.clone(date).add({ years: years });
+        };
+        MomentDateAdapter.prototype.addCalendarMonths = function (date, months) {
+            return this.clone(date).add({ months: months });
+        };
+        MomentDateAdapter.prototype.addCalendarDays = function (date, days) {
+            return this.clone(date).add({ days: days });
+        };
+        MomentDateAdapter.prototype.toIso8601 = function (date) {
+            return this.clone(date).format();
+        };
+        /**
+         * Returns the given value if given a valid Moment or null. Deserializes valid ISO 8601 strings
+         * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
+         * string into null. Returns an invalid date for all other values.
+         */
+        MomentDateAdapter.prototype.deserialize = function (value) {
+            var date;
+            if (value instanceof Date) {
+                date = this._createMoment(value).locale(this.locale);
+            }
+            else if (this.isDateInstance(value)) {
+                // Note: assumes that cloning also sets the correct locale.
+                return this.clone(value);
+            }
+            if (typeof value === 'string') {
+                if (!value) {
+                    return null;
+                }
+                date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
+            }
+            if (date && this.isValid(date)) {
+                return this._createMoment(date).locale(this.locale);
+            }
+            return _super.prototype.deserialize.call(this, value);
+        };
+        MomentDateAdapter.prototype.isDateInstance = function (obj) {
+            return moment.isMoment(obj);
+        };
+        MomentDateAdapter.prototype.isValid = function (date) {
+            return this.clone(date).isValid();
+        };
+        MomentDateAdapter.prototype.invalid = function () {
+            return moment.invalid();
+        };
+        /** Creates a Moment instance while respecting the current UTC settings. */
+        MomentDateAdapter.prototype._createMoment = function (date, format, locale) {
+            var _a = this._options || {}, strict = _a.strict, useUtc = _a.useUtc;
+            return useUtc
+                ? moment.utc(date, format, locale, strict)
+                : moment(date, format, locale, strict);
+        };
+        MomentDateAdapter = tslib_1.__decorate([
+            core.Injectable(),
+            tslib_1.__param(0, core.Optional()), tslib_1.__param(0, core.Inject(core$1.MAT_DATE_LOCALE)),
+            tslib_1.__param(1, core.Optional()), tslib_1.__param(1, core.Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS)),
+            tslib_1.__metadata("design:paramtypes", [String, Object])
+        ], MomentDateAdapter);
+        return MomentDateAdapter;
+    }(core$1.DateAdapter));
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    var MAT_MOMENT_DATE_FORMATS = {
+        parse: {
+            dateInput: 'l',
+        },
+        display: {
+            dateInput: 'l',
+            monthYearLabel: 'MMM YYYY',
+            dateA11yLabel: 'LL',
+            monthYearA11yLabel: 'MMMM YYYY',
+        },
+    };
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    var MomentDateModule = /** @class */ (function () {
+        function MomentDateModule() {
         }
-        if (date && this.isValid(date)) {
-            return this._createMoment(date).locale(this.locale);
+        MomentDateModule = tslib_1.__decorate([
+            core.NgModule({
+                providers: [
+                    {
+                        provide: core$1.DateAdapter,
+                        useClass: MomentDateAdapter,
+                        deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+                    }
+                ],
+            })
+        ], MomentDateModule);
+        return MomentDateModule;
+    }());
+    var ɵ0 = MAT_MOMENT_DATE_FORMATS;
+    var MatMomentDateModule = /** @class */ (function () {
+        function MatMomentDateModule() {
         }
-        return _super.prototype.deserialize.call(this, value);
-    };
+        MatMomentDateModule = tslib_1.__decorate([
+            core.NgModule({
+                imports: [MomentDateModule],
+                providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
+            })
+        ], MatMomentDateModule);
+        return MatMomentDateModule;
+    }());
+
     /**
-     * @param {?} obj
-     * @return {?}
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
      */
-    MomentDateAdapter.prototype.isDateInstance = /**
-     * @param {?} obj
-     * @return {?}
-     */
-    function (obj) {
-        return moment.isMoment(obj);
-    };
+
     /**
-     * @param {?} date
-     * @return {?}
+     * Generated bundle index. Do not edit.
      */
-    MomentDateAdapter.prototype.isValid = /**
-     * @param {?} date
-     * @return {?}
-     */
-    function (date) {
-        return this.clone(date).isValid();
-    };
-    /**
-     * @return {?}
-     */
-    MomentDateAdapter.prototype.invalid = /**
-     * @return {?}
-     */
-    function () {
-        return moment.invalid();
-    };
-    /** Creates a Moment instance while respecting the current UTC settings. */
-    /**
-     * Creates a Moment instance while respecting the current UTC settings.
-     * @private
-     * @param {?} date
-     * @param {?=} format
-     * @param {?=} locale
-     * @return {?}
-     */
-    MomentDateAdapter.prototype._createMoment = /**
-     * Creates a Moment instance while respecting the current UTC settings.
-     * @private
-     * @param {?} date
-     * @param {?=} format
-     * @param {?=} locale
-     * @return {?}
-     */
-    function (date, format, locale) {
-        var _a = this._options || {}, strict = _a.strict, useUtc = _a.useUtc;
-        return useUtc
-            ? moment.utc(date, format, locale, strict)
-            : moment(date, format, locale, strict);
-    };
-    MomentDateAdapter.decorators = [
-        { type: core.Injectable },
-    ];
-    /** @nocollapse */
-    MomentDateAdapter.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_DATE_LOCALE,] }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
-    ]; };
-    return MomentDateAdapter;
-}(core$1.DateAdapter));
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
+    exports.MomentDateModule = MomentDateModule;
+    exports.MatMomentDateModule = MatMomentDateModule;
+    exports.ɵ0 = ɵ0;
+    exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS = MAT_MOMENT_DATE_ADAPTER_OPTIONS;
+    exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY = MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY;
+    exports.MomentDateAdapter = MomentDateAdapter;
+    exports.MAT_MOMENT_DATE_FORMATS = MAT_MOMENT_DATE_FORMATS;
 
-/** @type {?} */
-var MAT_MOMENT_DATE_FORMATS = {
-    parse: {
-        dateInput: 'l',
-    },
-    display: {
-        dateInput: 'l',
-        monthYearLabel: 'MMM YYYY',
-        dateA11yLabel: 'LL',
-        monthYearA11yLabel: 'MMMM YYYY',
-    },
-};
+    Object.defineProperty(exports, '__esModule', { value: true });
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-var MomentDateModule = /** @class */ (function () {
-    function MomentDateModule() {
-    }
-    MomentDateModule.decorators = [
-        { type: core.NgModule, args: [{
-                    providers: [
-                        {
-                            provide: core$1.DateAdapter,
-                            useClass: MomentDateAdapter,
-                            deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-                        }
-                    ],
-                },] },
-    ];
-    return MomentDateModule;
-}());
-var ɵ0 = MAT_MOMENT_DATE_FORMATS;
-var MatMomentDateModule = /** @class */ (function () {
-    function MatMomentDateModule() {
-    }
-    MatMomentDateModule.decorators = [
-        { type: core.NgModule, args: [{
-                    imports: [MomentDateModule],
-                    providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
-                },] },
-    ];
-    return MatMomentDateModule;
-}());
-
-exports.MomentDateModule = MomentDateModule;
-exports.MatMomentDateModule = MatMomentDateModule;
-exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY = MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY;
-exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS = MAT_MOMENT_DATE_ADAPTER_OPTIONS;
-exports.MomentDateAdapter = MomentDateAdapter;
-exports.MAT_MOMENT_DATE_FORMATS = MAT_MOMENT_DATE_FORMATS;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
+}));
 //# sourceMappingURL=material-moment-adapter.umd.js.map
