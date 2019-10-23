@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('@angular/material/core'), require('moment')) :
     typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', 'tslib', '@angular/core', '@angular/material/core', 'moment'], factory) :
     (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.tslib, global.ng.core, global.ng.material.core, global.moment));
-}(this, function (exports, tslib_1, core, core$1, _rollupMoment) { 'use strict';
+}(this, function (exports, tslib, core, core$1, _rollupMoment) { 'use strict';
 
     var _rollupMoment__default = 'default' in _rollupMoment ? _rollupMoment['default'] : _rollupMoment;
 
@@ -35,7 +35,7 @@
     }
     /** Adapts Moment.js Dates for use with Angular Material. */
     var MomentDateAdapter = /** @class */ (function (_super) {
-        tslib_1.__extends(MomentDateAdapter, _super);
+        tslib.__extends(MomentDateAdapter, _super);
         function MomentDateAdapter(dateLocale, _options) {
             var _this = _super.call(this) || this;
             _this._options = _options;
@@ -181,11 +181,11 @@
                 ? moment.utc(date, format, locale, strict)
                 : moment(date, format, locale, strict);
         };
-        MomentDateAdapter = tslib_1.__decorate([
+        MomentDateAdapter = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(0, core.Optional()), tslib_1.__param(0, core.Inject(core$1.MAT_DATE_LOCALE)),
-            tslib_1.__param(1, core.Optional()), tslib_1.__param(1, core.Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS)),
-            tslib_1.__metadata("design:paramtypes", [String, Object])
+            tslib.__param(0, core.Optional()), tslib.__param(0, core.Inject(core$1.MAT_DATE_LOCALE)),
+            tslib.__param(1, core.Optional()), tslib.__param(1, core.Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS)),
+            tslib.__metadata("design:paramtypes", [String, Object])
         ], MomentDateAdapter);
         return MomentDateAdapter;
     }(core$1.DateAdapter));
@@ -219,7 +219,7 @@
     var MomentDateModule = /** @class */ (function () {
         function MomentDateModule() {
         }
-        MomentDateModule = tslib_1.__decorate([
+        MomentDateModule = tslib.__decorate([
             core.NgModule({
                 providers: [
                     {
@@ -236,7 +236,7 @@
     var MatMomentDateModule = /** @class */ (function () {
         function MatMomentDateModule() {
         }
-        MatMomentDateModule = tslib_1.__decorate([
+        MatMomentDateModule = tslib.__decorate([
             core.NgModule({
                 imports: [MomentDateModule],
                 providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],

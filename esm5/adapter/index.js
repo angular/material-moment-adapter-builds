@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from './moment-date-adapter';
@@ -15,7 +15,7 @@ export * from './moment-date-formats';
 var MomentDateModule = /** @class */ (function () {
     function MomentDateModule() {
     }
-    MomentDateModule = tslib_1.__decorate([
+    MomentDateModule = __decorate([
         NgModule({
             providers: [
                 {
@@ -33,7 +33,7 @@ var ɵ0 = MAT_MOMENT_DATE_FORMATS;
 var MatMomentDateModule = /** @class */ (function () {
     function MatMomentDateModule() {
     }
-    MatMomentDateModule = tslib_1.__decorate([
+    MatMomentDateModule = __decorate([
         NgModule({
             imports: [MomentDateModule],
             providers: [{ provide: MAT_DATE_FORMATS, useValue: ɵ0 }],
