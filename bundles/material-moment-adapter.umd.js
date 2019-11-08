@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('@angular/material/core'), require('moment')) :
     typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', 'tslib', '@angular/core', '@angular/material/core', 'moment'], factory) :
     (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.tslib, global.ng.core, global.ng.material.core, global.moment));
-}(this, function (exports, tslib, core, core$1, _rollupMoment) { 'use strict';
+}(this, (function (exports, tslib, core, core$1, _rollupMoment) { 'use strict';
 
     var _rollupMoment__default = 'default' in _rollupMoment ? _rollupMoment['default'] : _rollupMoment;
 
@@ -257,15 +257,15 @@
      * Generated bundle index. Do not edit.
      */
 
-    exports.MomentDateModule = MomentDateModule;
-    exports.MatMomentDateModule = MatMomentDateModule;
-    exports.ɵ0 = ɵ0;
     exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS = MAT_MOMENT_DATE_ADAPTER_OPTIONS;
     exports.MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY = MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY;
-    exports.MomentDateAdapter = MomentDateAdapter;
     exports.MAT_MOMENT_DATE_FORMATS = MAT_MOMENT_DATE_FORMATS;
+    exports.MatMomentDateModule = MatMomentDateModule;
+    exports.MomentDateAdapter = MomentDateAdapter;
+    exports.MomentDateModule = MomentDateModule;
+    exports.ɵ0 = ɵ0;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=material-moment-adapter.umd.js.map

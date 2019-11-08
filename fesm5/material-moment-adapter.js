@@ -255,5 +255,5 @@ var MatMomentDateModule = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { MomentDateModule, MatMomentDateModule, ɵ0, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS };
+export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, ɵ0 };
 //# sourceMappingURL=material-moment-adapter.js.map
