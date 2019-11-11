@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('@angular/material/core'), require('moment')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', 'tslib', '@angular/core', '@angular/material/core', 'moment'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.tslib, global.ng.core, global.ng.material.core, global.moment));
-}(this, (function (exports, tslib, core, core$1, _rollupMoment) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('tslib'), require('moment')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', '@angular/core', '@angular/material/core', 'tslib', 'moment'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.ng.core, global.ng.material.core, global.tslib, global.moment));
+}(this, (function (exports, core, core$1, tslib, _rollupMoment) { 'use strict';
 
     var _rollupMoment__default = 'default' in _rollupMoment ? _rollupMoment['default'] : _rollupMoment;
 
@@ -181,12 +181,14 @@
                 ? moment.utc(date, format, locale, strict)
                 : moment(date, format, locale, strict);
         };
-        MomentDateAdapter = tslib.__decorate([
-            core.Injectable(),
-            tslib.__param(0, core.Optional()), tslib.__param(0, core.Inject(core$1.MAT_DATE_LOCALE)),
-            tslib.__param(1, core.Optional()), tslib.__param(1, core.Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS)),
-            tslib.__metadata("design:paramtypes", [String, Object])
-        ], MomentDateAdapter);
+        MomentDateAdapter.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        MomentDateAdapter.ctorParameters = function () { return [
+            { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_DATE_LOCALE,] }] },
+            { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
+        ]; };
         return MomentDateAdapter;
     }(core$1.DateAdapter));
 
@@ -219,29 +221,29 @@
     var MomentDateModule = /** @class */ (function () {
         function MomentDateModule() {
         }
-        MomentDateModule = tslib.__decorate([
-            core.NgModule({
-                providers: [
-                    {
-                        provide: core$1.DateAdapter,
-                        useClass: MomentDateAdapter,
-                        deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-                    }
-                ],
-            })
-        ], MomentDateModule);
+        MomentDateModule.decorators = [
+            { type: core.NgModule, args: [{
+                        providers: [
+                            {
+                                provide: core$1.DateAdapter,
+                                useClass: MomentDateAdapter,
+                                deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+                            }
+                        ],
+                    },] }
+        ];
         return MomentDateModule;
     }());
     var ɵ0 = MAT_MOMENT_DATE_FORMATS;
     var MatMomentDateModule = /** @class */ (function () {
         function MatMomentDateModule() {
         }
-        MatMomentDateModule = tslib.__decorate([
-            core.NgModule({
-                imports: [MomentDateModule],
-                providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
-            })
-        ], MatMomentDateModule);
+        MatMomentDateModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [MomentDateModule],
+                        providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
+                    },] }
+        ];
         return MatMomentDateModule;
     }());
 
