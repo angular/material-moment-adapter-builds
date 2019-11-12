@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-moment-adapter",
-  "version": "9.0.0-rc.1-sha-5822051dd",
+  "version": "9.0.0-rc.1-sha-3a10c2cfe",
   "description": "Angular Material Moment Adapter",
   "main": "./bundles/material-moment-adapter.umd.js",
   "fesm5": "./fesm5/material-moment-adapter.js",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/angular/components#readme",
   "peerDependencies": {
-    "@angular/material": "9.0.0-rc.1-sha-5822051dd",
+    "@angular/material": "9.0.0-rc.1-sha-3a10c2cfe",
     "@angular/core": "^9.0.0-0 || ^10.0.0-0",
     "moment": "^2.18.1",
     "tslib": "^1.9.0"
@@ -31,5 +31,8 @@
       "@angular/cdk",
       "@angular/material-moment-adapter"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://wombat-dressing-room.appspot.com"
   }
 }
