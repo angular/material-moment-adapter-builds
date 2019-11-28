@@ -5,6 +5,7 @@ import _rollupMoment__default, {  } from 'moment';
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: src/material-moment-adapter/adapter/moment-date-adapter.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
@@ -347,6 +348,7 @@ if (false) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: src/material-moment-adapter/adapter/moment-date-formats.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
@@ -371,6 +373,7 @@ const MAT_MOMENT_DATE_FORMATS = {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: src/material-moment-adapter/adapter/index.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class MomentDateModule {
@@ -398,6 +401,7 @@ MatMomentDateModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: src/material-moment-adapter/public-api.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
