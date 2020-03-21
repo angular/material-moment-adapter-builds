@@ -7,6 +7,7 @@
  */
 import { InjectionToken } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
+import * as _moment from 'moment';
 import { Moment } from 'moment';
 /** Configurable options for {@see MomentDateAdapter}. */
 export interface MatMomentDateAdapterOptions {
@@ -57,7 +58,7 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
      * string into null. Returns an invalid date for all other values.
      */
     deserialize(value: any): Moment | null;
-    isDateInstance(obj: any): boolean;
+    isDateInstance(obj: any): obj is _moment.Moment;
     isValid(date: Moment): boolean;
     invalid(): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
