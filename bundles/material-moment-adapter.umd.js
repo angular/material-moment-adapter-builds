@@ -409,12 +409,14 @@
                 ? moment.utc(date, format, locale, strict)
                 : moment(date, format, locale, strict);
         };
-        MomentDateAdapter = __decorate([
-            core.Injectable(),
-            __param(0, core.Optional()), __param(0, core.Inject(core$1.MAT_DATE_LOCALE)),
-            __param(1, core.Optional()), __param(1, core.Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS)),
-            __metadata("design:paramtypes", [String, Object])
-        ], MomentDateAdapter);
+        MomentDateAdapter.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        MomentDateAdapter.ctorParameters = function () { return [
+            { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_DATE_LOCALE,] }] },
+            { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
+        ]; };
         return MomentDateAdapter;
     }(core$1.DateAdapter));
 
@@ -447,29 +449,29 @@
     var MomentDateModule = /** @class */ (function () {
         function MomentDateModule() {
         }
-        MomentDateModule = __decorate([
-            core.NgModule({
-                providers: [
-                    {
-                        provide: core$1.DateAdapter,
-                        useClass: MomentDateAdapter,
-                        deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-                    }
-                ],
-            })
-        ], MomentDateModule);
+        MomentDateModule.decorators = [
+            { type: core.NgModule, args: [{
+                        providers: [
+                            {
+                                provide: core$1.DateAdapter,
+                                useClass: MomentDateAdapter,
+                                deps: [core$1.MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+                            }
+                        ],
+                    },] }
+        ];
         return MomentDateModule;
     }());
     var ɵ0 = MAT_MOMENT_DATE_FORMATS;
     var MatMomentDateModule = /** @class */ (function () {
         function MatMomentDateModule() {
         }
-        MatMomentDateModule = __decorate([
-            core.NgModule({
-                imports: [MomentDateModule],
-                providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
-            })
-        ], MatMomentDateModule);
+        MatMomentDateModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [MomentDateModule],
+                        providers: [{ provide: core$1.MAT_DATE_FORMATS, useValue: ɵ0 }],
+                    },] }
+        ];
         return MatMomentDateModule;
     }());
 
