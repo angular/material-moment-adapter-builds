@@ -180,7 +180,6 @@ let MomentDateAdapter = /** @class */ (() => {
     MomentDateAdapter.decorators = [
         { type: Injectable }
     ];
-    /** @nocollapse */
     MomentDateAdapter.ctorParameters = () => [
         { type: String, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DATE_LOCALE,] }] },
         { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }

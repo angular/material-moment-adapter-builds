@@ -412,7 +412,6 @@
         MomentDateAdapter.decorators = [
             { type: core.Injectable }
         ];
-        /** @nocollapse */
         MomentDateAdapter.ctorParameters = function () { return [
             { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_DATE_LOCALE,] }] },
             { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS,] }] }
