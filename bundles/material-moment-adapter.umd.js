@@ -1,10 +1,33 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('moment')) :
     typeof define === 'function' && define.amd ? define('@angular/material-moment-adapter', ['exports', '@angular/core', '@angular/material/core', 'moment'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.ng.core, global.ng.material.core, global.moment));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialMomentAdapter = {}), global.ng.core, global.ng.material.core, global.moment));
 }(this, (function (exports, core, core$1, _rollupMoment) { 'use strict';
 
-    var _rollupMoment__default = 'default' in _rollupMoment ? _rollupMoment['default'] : _rollupMoment;
+    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+    function _interopNamespace(e) {
+        if (e && e.__esModule) return e;
+        var n = Object.create(null);
+        if (e) {
+            Object.keys(e).forEach(function (k) {
+                if (k !== 'default') {
+                    var d = Object.getOwnPropertyDescriptor(e, k);
+                    Object.defineProperty(n, k, d.get ? d : {
+                        enumerable: true,
+                        get: function () {
+                            return e[k];
+                        }
+                    });
+                }
+            });
+        }
+        n['default'] = e;
+        return Object.freeze(n);
+    }
+
+    var _rollupMoment__default = /*#__PURE__*/_interopDefaultLegacy(_rollupMoment);
+    var _rollupMoment__namespace = /*#__PURE__*/_interopNamespace(_rollupMoment);
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -315,7 +338,7 @@
         return value;
     }
 
-    var moment = _rollupMoment__default || _rollupMoment;
+    var moment = _rollupMoment__default['default'] || _rollupMoment__namespace;
     /** InjectionToken for moment date adapter to configure options. */
     var MAT_MOMENT_DATE_ADAPTER_OPTIONS = new core.InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
         providedIn: 'root',
