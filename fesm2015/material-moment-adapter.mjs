@@ -15,12 +15,12 @@ const moment = _rollupMoment__default || _rollupMoment;
 /** InjectionToken for moment date adapter to configure options. */
 const MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
     providedIn: 'root',
-    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY
+    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY,
 });
 /** @docs-private */
 function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
     return {
-        useUtc: false
+        useUtc: false,
     };
 }
 /** Creates an array and fills it with values. */
@@ -45,7 +45,7 @@ class MomentDateAdapter extends DateAdapter {
             firstDayOfWeek: momentLocaleData.firstDayOfWeek(),
             longMonths: momentLocaleData.months(),
             shortMonths: momentLocaleData.monthsShort(),
-            dates: range(31, (i) => this.createDate(2017, 0, i + 1).format('D')),
+            dates: range(31, i => this.createDate(2017, 0, i + 1).format('D')),
             longDaysOfWeek: momentLocaleData.weekdays(),
             shortDaysOfWeek: momentLocaleData.weekdaysShort(),
             narrowDaysOfWeek: momentLocaleData.weekdaysMin(),
@@ -174,9 +174,7 @@ class MomentDateAdapter extends DateAdapter {
     /** Creates a Moment instance while respecting the current UTC settings. */
     _createMoment(date, format, locale) {
         const { strict, useUtc } = this._options || {};
-        return useUtc
-            ? moment.utc(date, format, locale, strict)
-            : moment(date, format, locale, strict);
+        return useUtc ? moment.utc(date, format, locale, strict) : moment(date, format, locale, strict);
     }
 }
 MomentDateAdapter.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MomentDateAdapter, deps: [{ token: MAT_DATE_LOCALE, optional: true }, { token: MAT_MOMENT_DATE_ADAPTER_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
@@ -231,8 +229,8 @@ MomentDateModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", versio
         {
             provide: DateAdapter,
             useClass: MomentDateAdapter,
-            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-        }
+            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+        },
     ] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MomentDateModule, decorators: [{
             type: NgModule,
@@ -241,8 +239,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         {
                             provide: DateAdapter,
                             useClass: MomentDateAdapter,
-                            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-                        }
+                            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+                        },
                     ],
                 }]
         }] });
