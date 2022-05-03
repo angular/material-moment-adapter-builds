@@ -30,7 +30,7 @@
   "fesm2020": "./fesm2020/material-moment-adapter.mjs",
   "fesm2015": "./fesm2015/material-moment-adapter.mjs",
   "esm2020": "./esm2020/material-moment-adapter_public_index.mjs",
-  "typings": "./material-moment-adapter_public_index.d.ts",
+  "typings": "./index.d.ts",
   "module": "./fesm2015/material-moment-adapter.mjs",
   "es2020": "./fesm2020/material-moment-adapter.mjs",
   "type": "module",
@@ -39,7 +39,7 @@
       "default": "./package.json"
     },
     ".": {
-      "types": "./material-moment-adapter_public_index.d.ts",
+      "types": "./index.d.ts",
       "esm2020": "./esm2020/material-moment-adapter_public_index.mjs",
       "es2020": "./fesm2020/material-moment-adapter.mjs",
       "es2015": "./fesm2015/material-moment-adapter.mjs",
