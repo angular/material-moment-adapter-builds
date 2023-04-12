@@ -27,12 +27,8 @@
     ]
   },
   "sideEffects": false,
-  "fesm2020": "./fesm2020/material-moment-adapter.mjs",
-  "fesm2015": "./fesm2015/material-moment-adapter.mjs",
-  "esm2020": "./esm2020/material-moment-adapter_public_index.mjs",
+  "module": "./fesm2022/material-moment-adapter.mjs",
   "typings": "./index.d.ts",
-  "module": "./fesm2015/material-moment-adapter.mjs",
-  "es2020": "./fesm2020/material-moment-adapter.mjs",
   "type": "module",
   "exports": {
     "./package.json": {
@@ -40,11 +36,9 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2020": "./esm2020/material-moment-adapter_public_index.mjs",
-      "es2020": "./fesm2020/material-moment-adapter.mjs",
-      "es2015": "./fesm2015/material-moment-adapter.mjs",
-      "node": "./fesm2015/material-moment-adapter.mjs",
-      "default": "./fesm2020/material-moment-adapter.mjs"
+      "esm2022": "./esm2022/material-moment-adapter_public_index.mjs",
+      "esm": "./esm2022/material-moment-adapter_public_index.mjs",
+      "default": "./fesm2022/material-moment-adapter.mjs"
     }
   }
 }
