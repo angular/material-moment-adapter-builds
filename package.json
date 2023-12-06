@@ -26,6 +26,7 @@
       "@angular/material-moment-adapter"
     ]
   },
+  "schematics": "./schematics/collection.json",
   "sideEffects": false,
   "module": "./fesm2022/material-moment-adapter.mjs",
   "typings": "./index.d.ts",
