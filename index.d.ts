@@ -3,6 +3,7 @@ import * as i0 from '@angular/core';
 import { InjectionToken } from '@angular/core';
 import { MatDateFormats } from '@angular/material/core';
 import { Moment } from 'moment';
+import { Provider } from '@angular/core';
 
 /** InjectionToken for moment date adapter to configure options. */
 export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
@@ -12,7 +13,7 @@ export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDate
 
 export declare const MAT_MOMENT_DATE_FORMATS: MatDateFormats;
 
-/** Configurable options for {@see MomentDateAdapter}. */
+/** Configurable options for MomentDateAdapter. */
 export declare interface MatMomentDateAdapterOptions {
     /**
      * When enabled, the dates have to match the format exactly.
@@ -22,7 +23,7 @@ export declare interface MatMomentDateAdapterOptions {
     /**
      * Turns the use of utc dates on or off.
      * Changing this will change how Angular Material components like DatePicker output dates.
-     * {@default false}
+     * Defaults to `false`.
      */
     useUtc?: boolean;
 }
@@ -78,5 +79,7 @@ export declare class MomentDateModule {
     static ɵmod: i0.ɵɵNgModuleDeclaration<MomentDateModule, never, never, never>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MomentDateModule>;
 }
+
+export declare function provideMomentDateAdapter(formats?: MatDateFormats, options?: MatMomentDateAdapterOptions): Provider[];
 
 export { }
