@@ -30,7 +30,7 @@ export declare interface MatMomentDateAdapterOptions {
 
 export declare class MatMomentDateModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMomentDateModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMomentDateModule, never, [typeof MomentDateModule], never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMomentDateModule, never, never, never>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatMomentDateModule>;
 }
 
