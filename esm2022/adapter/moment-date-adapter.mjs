@@ -181,10 +181,10 @@ export class MomentDateAdapter extends DateAdapter {
         const { strict, useUtc } = this._options || {};
         return useUtc ? moment.utc(date, format, locale, strict) : moment(date, format, locale, strict);
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: MomentDateAdapter, deps: [{ token: MAT_DATE_LOCALE, optional: true }, { token: MAT_MOMENT_DATE_ADAPTER_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: MomentDateAdapter }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-rc.2", ngImport: i0, type: MomentDateAdapter, deps: [{ token: MAT_DATE_LOCALE, optional: true }, { token: MAT_MOMENT_DATE_ADAPTER_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-rc.2", ngImport: i0, type: MomentDateAdapter }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: MomentDateAdapter, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-rc.2", ngImport: i0, type: MomentDateAdapter, decorators: [{
             type: Injectable
         }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Optional
