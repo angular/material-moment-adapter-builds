@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { InjectionToken, Injectable, Optional, Inject, NgModule } from '@angular/core';
+import { InjectionToken, inject, Injectable, NgModule } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import * as _rollupMoment from 'moment';
 import _rollupMoment__default from 'moment';
@@ -26,9 +26,12 @@ function range(length, valueFunction) {
 }
 /** Adapts Moment.js Dates for use with Angular Material. */
 class MomentDateAdapter extends DateAdapter {
-    constructor(dateLocale, _options) {
+    constructor() {
         super();
-        this._options = _options;
+        this._options = inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS, {
+            optional: true,
+        });
+        const dateLocale = inject(MAT_DATE_LOCALE, { optional: true });
         this.setLocale(dateLocale || moment.locale());
     }
     setLocale(locale) {
@@ -169,22 +172,12 @@ class MomentDateAdapter extends DateAdapter {
         const { strict, useUtc } = this._options || {};
         return useUtc ? moment.utc(date, format, locale, strict) : moment(date, format, locale, strict);
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.0.0-next.3", ngImport: i0, type: MomentDateAdapter, deps: [{ token: MAT_DATE_LOCALE, optional: true }, { token: MAT_MOMENT_DATE_ADAPTER_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.0.0-next.3", ngImport: i0, type: MomentDateAdapter, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
     static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "19.0.0-next.3", ngImport: i0, type: MomentDateAdapter }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.3", ngImport: i0, type: MomentDateAdapter, decorators: [{
             type: Injectable
-        }], ctorParameters: () => [{ type: undefined, decorators: [{
-                    type: Optional
-                }, {
-                    type: Inject,
-                    args: [MAT_DATE_LOCALE]
-                }] }, { type: undefined, decorators: [{
-                    type: Optional
-                }, {
-                    type: Inject,
-                    args: [MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-                }] }] });
+        }], ctorParameters: () => [] });
 
 const MAT_MOMENT_DATE_FORMATS = {
     parse: {

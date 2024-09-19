@@ -36,9 +36,9 @@ export declare class MatMomentDateModule {
 
 /** Adapts Moment.js Dates for use with Angular Material. */
 export declare class MomentDateAdapter extends DateAdapter<Moment> {
-    private _options?;
+    private _options;
     private _localeData;
-    constructor(dateLocale: string, _options?: MatMomentDateAdapterOptions | undefined);
+    constructor(...args: unknown[]);
     setLocale(locale: string): void;
     getYear(date: Moment): number;
     getMonth(date: Moment): number;
@@ -70,7 +70,7 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     invalid(): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
     private _createMoment;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MomentDateAdapter, [{ optional: true; }, { optional: true; }]>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MomentDateAdapter, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<MomentDateAdapter>;
 }
 
