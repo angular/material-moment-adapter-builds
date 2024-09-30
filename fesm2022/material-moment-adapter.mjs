@@ -167,6 +167,35 @@ class MomentDateAdapter extends DateAdapter {
     invalid() {
         return moment.invalid();
     }
+    setTime(target, hours, minutes, seconds) {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (hours < 0 || hours > 23) {
+                throw Error(`Invalid hours "${hours}". Hours value must be between 0 and 23.`);
+            }
+            if (minutes < 0 || minutes > 59) {
+                throw Error(`Invalid minutes "${minutes}". Minutes value must be between 0 and 59.`);
+            }
+            if (seconds < 0 || seconds > 59) {
+                throw Error(`Invalid seconds "${seconds}". Seconds value must be between 0 and 59.`);
+            }
+        }
+        return this.clone(target).set({ hours, minutes, seconds });
+    }
+    getHours(date) {
+        return date.hours();
+    }
+    getMinutes(date) {
+        return date.minutes();
+    }
+    getSeconds(date) {
+        return date.seconds();
+    }
+    parseTime(value, parseFormat) {
+        return this.parse(value, parseFormat);
+    }
+    addMilliseconds(date, amount) {
+        return this.clone(date).add({ milliseconds: amount });
+    }
     /** Creates a Moment instance while respecting the current UTC settings. */
     _createMoment(date, format, locale) {
         const { strict, useUtc } = this._options || {};
@@ -182,12 +211,15 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.3", 
 const MAT_MOMENT_DATE_FORMATS = {
     parse: {
         dateInput: 'l',
+        timeInput: 'LT',
     },
     display: {
         dateInput: 'l',
+        timeInput: 'LT',
         monthYearLabel: 'MMM YYYY',
         dateA11yLabel: 'LL',
         monthYearA11yLabel: 'MMMM YYYY',
+        timeOptionLabel: 'LT',
     },
 };
 

@@ -68,6 +68,12 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     isDateInstance(obj: any): boolean;
     isValid(date: Moment): boolean;
     invalid(): Moment;
+    setTime(target: Moment, hours: number, minutes: number, seconds: number): Moment;
+    getHours(date: Moment): number;
+    getMinutes(date: Moment): number;
+    getSeconds(date: Moment): number;
+    parseTime(value: any, parseFormat: string | string[]): Moment | null;
+    addMilliseconds(date: Moment, amount: number): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
     private _createMoment;
     static ɵfac: i0.ɵɵFactoryDeclaration<MomentDateAdapter, never>;
