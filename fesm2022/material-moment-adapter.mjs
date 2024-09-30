@@ -179,7 +179,7 @@ class MomentDateAdapter extends DateAdapter {
                 throw Error(`Invalid seconds "${seconds}". Seconds value must be between 0 and 59.`);
             }
         }
-        return this.clone(target).set({ hours, minutes, seconds });
+        return this.clone(target).set({ hours, minutes, seconds, milliseconds: 0 });
     }
     getHours(date) {
         return date.hours();
@@ -193,8 +193,8 @@ class MomentDateAdapter extends DateAdapter {
     parseTime(value, parseFormat) {
         return this.parse(value, parseFormat);
     }
-    addMilliseconds(date, amount) {
-        return this.clone(date).add({ milliseconds: amount });
+    addSeconds(date, amount) {
+        return this.clone(date).add({ seconds: amount });
     }
     /** Creates a Moment instance while respecting the current UTC settings. */
     _createMoment(date, format, locale) {
