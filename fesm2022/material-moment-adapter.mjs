@@ -206,10 +206,10 @@ class MomentDateAdapter extends DateAdapter {
         const { strict, useUtc } = this._options || {};
         return useUtc ? moment.utc(date, format, locale, strict) : moment(date, format, locale, strict);
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateAdapter, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateAdapter });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateAdapter, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateAdapter });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateAdapter, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateAdapter, decorators: [{
             type: Injectable
         }], ctorParameters: () => [] });
 
@@ -229,9 +229,9 @@ const MAT_MOMENT_DATE_FORMATS = {
 };
 
 class MomentDateModule {
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateModule });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateModule, providers: [
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateModule });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateModule, providers: [
             {
                 provide: DateAdapter,
                 useClass: MomentDateAdapter,
@@ -239,7 +239,7 @@ class MomentDateModule {
             },
         ] });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MomentDateModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MomentDateModule, decorators: [{
             type: NgModule,
             args: [{
                     providers: [
@@ -252,11 +252,11 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-next.3", 
                 }]
         }] });
 class MatMomentDateModule {
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MatMomentDateModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.0-next.3", ngImport: i0, type: MatMomentDateModule });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MatMomentDateModule, providers: [provideMomentDateAdapter()] });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MatMomentDateModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MatMomentDateModule });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MatMomentDateModule, providers: [provideMomentDateAdapter()] });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-next.3", ngImport: i0, type: MatMomentDateModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.0-rc.0", ngImport: i0, type: MatMomentDateModule, decorators: [{
             type: NgModule,
             args: [{
                     providers: [provideMomentDateAdapter()],
