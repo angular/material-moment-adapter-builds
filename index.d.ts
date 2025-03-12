@@ -8,7 +8,11 @@ import { Provider } from '@angular/core';
 /** InjectionToken for moment date adapter to configure options. */
 export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
 
-/** @docs-private */
+/**
+ * @docs-private
+ * @deprecated No longer used, will be removed.
+ * @breaking-change 21.0.0
+ */
 export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 
 export declare const MAT_MOMENT_DATE_FORMATS: MatDateFormats;
