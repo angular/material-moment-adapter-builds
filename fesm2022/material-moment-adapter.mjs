@@ -281,9 +281,5 @@ function provideMomentDateAdapter(formats = MAT_MOMENT_DATE_FORMATS, options) {
     return providers;
 }
 
-/**
- * Generated bundle index. Do not edit.
- */
-
 export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
 //# sourceMappingURL=material-moment-adapter.mjs.map
