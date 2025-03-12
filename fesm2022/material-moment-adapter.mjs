@@ -10,7 +10,11 @@ const MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAP
     providedIn: 'root',
     factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY,
 });
-/** @docs-private */
+/**
+ * @docs-private
+ * @deprecated No longer used, will be removed.
+ * @breaking-change 21.0.0
+ */
 function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
     return {
         useUtc: false,

@@ -19,7 +19,11 @@ interface MatMomentDateAdapterOptions {
 }
 /** InjectionToken for moment date adapter to configure options. */
 declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
-/** @docs-private */
+/**
+ * @docs-private
+ * @deprecated No longer used, will be removed.
+ * @breaking-change 21.0.0
+ */
 declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 /** Adapts Moment.js Dates for use with Angular Material. */
 declare class MomentDateAdapter extends DateAdapter<Moment> {
