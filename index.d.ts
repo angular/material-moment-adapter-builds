@@ -85,4 +85,5 @@ declare class MatMomentDateModule {
 }
 declare function provideMomentDateAdapter(formats?: MatDateFormats, options?: MatMomentDateAdapterOptions): Provider[];
 
-export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, type MatMomentDateAdapterOptions, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
+export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
+export type { MatMomentDateAdapterOptions };
