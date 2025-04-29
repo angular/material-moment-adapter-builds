@@ -44,7 +44,7 @@ declare class MomentDateAdapter extends DateAdapter<Moment> {
     clone(date: Moment): Moment;
     createDate(year: number, month: number, date: number): Moment;
     today(): Moment;
-    parse(value: any, parseFormat: string | string[]): Moment | null;
+    parse(value: unknown, parseFormat: string | string[]): Moment | null;
     format(date: Moment, displayFormat: string): string;
     addCalendarYears(date: Moment, years: number): Moment;
     addCalendarMonths(date: Moment, months: number): Moment;
@@ -55,15 +55,15 @@ declare class MomentDateAdapter extends DateAdapter<Moment> {
      * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
      * string into null. Returns an invalid date for all other values.
      */
-    deserialize(value: any): Moment | null;
-    isDateInstance(obj: any): boolean;
+    deserialize(value: unknown): Moment | null;
+    isDateInstance(obj: unknown): obj is Moment;
     isValid(date: Moment): boolean;
     invalid(): Moment;
     setTime(target: Moment, hours: number, minutes: number, seconds: number): Moment;
     getHours(date: Moment): number;
     getMinutes(date: Moment): number;
     getSeconds(date: Moment): number;
-    parseTime(value: any, parseFormat: string | string[]): Moment | null;
+    parseTime(value: unknown, parseFormat: string | string[]): Moment | null;
     addSeconds(date: Moment, amount: number): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
     private _createMoment;
