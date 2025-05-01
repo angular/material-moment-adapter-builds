@@ -1,20 +1,10 @@
-import { DateAdapter } from '@angular/material/core';
 import * as i0 from '@angular/core';
-import { InjectionToken } from '@angular/core';
-import { MatDateFormats } from '@angular/material/core';
+import { InjectionToken, Provider } from '@angular/core';
+import { DateAdapter, MatDateFormats } from '@angular/material/core';
 import { Moment } from 'moment';
-import { Provider } from '@angular/core';
-
-/** InjectionToken for moment date adapter to configure options. */
-export declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
-
-/** @docs-private */
-export declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
-
-export declare const MAT_MOMENT_DATE_FORMATS: MatDateFormats;
 
 /** Configurable options for MomentDateAdapter. */
-export declare interface MatMomentDateAdapterOptions {
+interface MatMomentDateAdapterOptions {
     /**
      * When enabled, the dates have to match the format exactly.
      * See https://momentjs.com/guides/#/parsing/strict-mode/.
@@ -27,15 +17,16 @@ export declare interface MatMomentDateAdapterOptions {
      */
     useUtc?: boolean;
 }
-
-export declare class MatMomentDateModule {
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatMomentDateModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMomentDateModule, never, never, never>;
-    static ɵinj: i0.ɵɵInjectorDeclaration<MatMomentDateModule>;
-}
-
+/** InjectionToken for moment date adapter to configure options. */
+declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapterOptions>;
+/**
+ * @docs-private
+ * @deprecated No longer used, will be removed.
+ * @breaking-change 21.0.0
+ */
+declare function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY(): MatMomentDateAdapterOptions;
 /** Adapts Moment.js Dates for use with Angular Material. */
-export declare class MomentDateAdapter extends DateAdapter<Moment> {
+declare class MomentDateAdapter extends DateAdapter<Moment> {
     private _options;
     private _localeData;
     constructor(...args: unknown[]);
@@ -53,7 +44,7 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     clone(date: Moment): Moment;
     createDate(year: number, month: number, date: number): Moment;
     today(): Moment;
-    parse(value: any, parseFormat: string | string[]): Moment | null;
+    parse(value: unknown, parseFormat: string | string[]): Moment | null;
     format(date: Moment, displayFormat: string): string;
     addCalendarYears(date: Moment, years: number): Moment;
     addCalendarMonths(date: Moment, months: number): Moment;
@@ -64,15 +55,15 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
      * (https://www.ietf.org/rfc/rfc3339.txt) and valid Date objects into valid Moments and empty
      * string into null. Returns an invalid date for all other values.
      */
-    deserialize(value: any): Moment | null;
-    isDateInstance(obj: any): boolean;
+    deserialize(value: unknown): Moment | null;
+    isDateInstance(obj: unknown): obj is Moment;
     isValid(date: Moment): boolean;
     invalid(): Moment;
     setTime(target: Moment, hours: number, minutes: number, seconds: number): Moment;
     getHours(date: Moment): number;
     getMinutes(date: Moment): number;
     getSeconds(date: Moment): number;
-    parseTime(value: any, parseFormat: string | string[]): Moment | null;
+    parseTime(value: unknown, parseFormat: string | string[]): Moment | null;
     addSeconds(date: Moment, amount: number): Moment;
     /** Creates a Moment instance while respecting the current UTC settings. */
     private _createMoment;
@@ -80,12 +71,19 @@ export declare class MomentDateAdapter extends DateAdapter<Moment> {
     static ɵprov: i0.ɵɵInjectableDeclaration<MomentDateAdapter>;
 }
 
-export declare class MomentDateModule {
+declare const MAT_MOMENT_DATE_FORMATS: MatDateFormats;
+
+declare class MomentDateModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MomentDateModule, never>;
     static ɵmod: i0.ɵɵNgModuleDeclaration<MomentDateModule, never, never, never>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MomentDateModule>;
 }
+declare class MatMomentDateModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatMomentDateModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMomentDateModule, never, never, never>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<MatMomentDateModule>;
+}
+declare function provideMomentDateAdapter(formats?: MatDateFormats, options?: MatMomentDateAdapterOptions): Provider[];
 
-export declare function provideMomentDateAdapter(formats?: MatDateFormats, options?: MatMomentDateAdapterOptions): Provider[];
-
-export { }
+export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
+export type { MatMomentDateAdapterOptions };
