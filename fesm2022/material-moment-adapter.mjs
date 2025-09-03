@@ -8,18 +8,8 @@ const moment = _rollupMoment__default || _rollupMoment;
 /** InjectionToken for moment date adapter to configure options. */
 const MAT_MOMENT_DATE_ADAPTER_OPTIONS = new InjectionToken('MAT_MOMENT_DATE_ADAPTER_OPTIONS', {
     providedIn: 'root',
-    factory: MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY,
+    factory: () => ({ useUtc: false }),
 });
-/**
- * @docs-private
- * @deprecated No longer used, will be removed.
- * @breaking-change 21.0.0
- */
-function MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY() {
-    return {
-        useUtc: false,
-    };
-}
 /** Creates an array and fills it with values. */
 function range(length, valueFunction) {
     const valuesArray = Array(length);
@@ -281,5 +271,5 @@ function provideMomentDateAdapter(formats = MAT_MOMENT_DATE_FORMATS, options) {
     return providers;
 }
 
-export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
+export { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MatMomentDateModule, MomentDateAdapter, MomentDateModule, provideMomentDateAdapter };
 //# sourceMappingURL=material-moment-adapter.mjs.map
