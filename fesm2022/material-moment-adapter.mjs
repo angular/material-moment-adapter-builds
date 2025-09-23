@@ -229,7 +229,6 @@ class MomentDateModule {
             {
                 provide: DateAdapter,
                 useClass: MomentDateAdapter,
-                deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
             },
         ] });
 }
@@ -240,7 +239,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", 
                         {
                             provide: DateAdapter,
                             useClass: MomentDateAdapter,
-                            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
                         },
                     ],
                 }]
@@ -261,7 +259,6 @@ function provideMomentDateAdapter(formats = MAT_MOMENT_DATE_FORMATS, options) {
         {
             provide: DateAdapter,
             useClass: MomentDateAdapter,
-            deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
         },
         { provide: MAT_DATE_FORMATS, useValue: formats },
     ];
