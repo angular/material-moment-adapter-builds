@@ -36,14 +36,14 @@
   "schematics": "./schematics/collection.json",
   "sideEffects": false,
   "module": "./fesm2022/material-moment-adapter.mjs",
-  "typings": "./index.d.ts",
+  "typings": "./types/material-moment-adapter.d.ts",
   "type": "module",
   "exports": {
     "./package.json": {
       "default": "./package.json"
     },
     ".": {
-      "types": "./index.d.ts",
+      "types": "./types/material-moment-adapter.d.ts",
       "default": "./fesm2022/material-moment-adapter.mjs"
     }
   }
