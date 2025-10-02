@@ -25,6 +25,7 @@
   "ng-update": {
     "packageGroup": [
       "@angular/material",
+      "@angular/aria",
       "@angular/cdk",
       "@angular/cdk-experimental",
       "@angular/material-experimental",
