@@ -23,7 +23,7 @@ declare const MAT_MOMENT_DATE_ADAPTER_OPTIONS: InjectionToken<MatMomentDateAdapt
 declare class MomentDateAdapter extends DateAdapter<Moment> {
     private _options;
     private _localeData;
-    constructor(...args: unknown[]);
+    constructor();
     setLocale(locale: string): void;
     getYear(date: Moment): number;
     getMonth(date: Moment): number;
