@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-moment-adapter",
-  "version": "22.1.4+sha-9ff8a7c",
+  "version": "22.1.4+sha-96b87fe",
   "description": "Angular Material Moment Adapter",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/angular/components#readme",
   "peerDependencies": {
-    "@angular/material": "22.1.4+sha-9ff8a7c",
+    "@angular/material": "22.1.4+sha-96b87fe",
     "@angular/core": "^22.0.0 || ^23.0.0",
     "moment": "^2.18.1"
   },
