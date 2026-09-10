@@ -62,7 +62,7 @@ declare class MomentDateAdapter extends DateAdapter<Moment> {
     /** Creates a Moment instance while respecting the current UTC settings. */
     private _createMoment;
     static ɵfac: i0.ɵɵFactoryDeclaration<MomentDateAdapter, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<MomentDateAdapter>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
 
 declare const MAT_MOMENT_DATE_FORMATS: MatDateFormats;
